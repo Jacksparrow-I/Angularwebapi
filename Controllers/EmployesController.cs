@@ -25,7 +25,7 @@ namespace angularwebapi.Controllers
         }
 
         [HttpPost("AddEmployes")]
-        public Boolean AddEmployes(Employes emp)
+        public Boolean AddEmployes([FromBody]Employes emp)
         {
             AddRepo sb = new AddRepo();
 
