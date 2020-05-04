@@ -1,0 +1,90 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <meta charset="utf-8" />  
+    
+</head>  
+
+<body>  
+    <h1>{{Add Employee}}</h1>  
+
+<!-- Default form contact -->
+
+<form class="container contact-form border-light p-5" action="#!" [formGroup]="employeeForm" (ngSubmit)="save()">
+
+    
+
+    <p class="h4 mb-4">Employee Form</p>
+
+    <!-- Name -->
+    <label>Name</label>
+    <input type="text" id="name" class="form-control mb-4" placeholder="Name">
+
+    <!-- Email -->
+    <label>Email</label>
+    <input type="email" id="email" class="form-control mb-4" placeholder="E-mail">
+
+    <label>Employee Code</label>
+    <div class="form-group">
+        <input type="number" min="0" name="EmployeeCode" id="employeecode"  class="form-control my-input" placeholder="EmployeeCode">
+     </div>
+
+     <div>
+     <div>
+        <label>Gender</label>
+     </div>
+     <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="customRadioInline1">Male</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+        <label class="custom-control-label" for="customRadioInline2">Female</label>
+      </div>
+    </div>
+
+    <!-- Department -->
+    <label>Department</label>
+    <select class="browser-default custom-select mb-4">
+        <option value="" disabled>Choose option</option>
+        <option value="1" selected>Department</option>
+        <option value="2">.NET</option>
+        <option value="3">SAP</option>
+        <option value="4">BI</option>
+    </select>
+
+    <!-- Designation -->
+    <label>Designation</label>
+    <select class="browser-default custom-select mb-4">
+        <option value="" disabled>Choose option</option>
+        <option value="1" selected>Designation</option>
+        <option value="2">Leader</option>
+        <option value="3">Manager</option>
+        <option value="4">Trainee</option>
+    </select>
+     
+    <label>DOB</label>
+    <div class="form-group">
+        <input type="text" id="dob" value="datetime" class="datepicker">
+    </div>
+
+    <label>Salary</label>
+    <div class="form-group">
+        <input type="number" min="0" name="Salary" id="Salary"  class="form-control my-input" placeholder="Salary">
+     </div>
+     
+
+    <!-- Copy -->
+    <div class="custom-control custom-checkbox mb-4">
+        <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
+        <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
+    </div>
+    
+
+    <!-- Send button -->
+    <button class="btn btn-info btn-block" type="submit">Send</button>
+    
+</form>
+
+</body>  
+</html>
