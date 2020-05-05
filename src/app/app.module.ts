@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
 import { EmployesService } from "./employes.service";
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';  
+import { FormsModule } from '@angular/forms';  
 import { RouterModule } from '@angular/router'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,15 +23,8 @@ import { UpdateComponent } from './employee/update/update.component';
   imports: [
     BrowserModule,
     FormsModule,  
-    ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule,
-    RouterModule.forRoot([  
-      { path: 'add-employee', component: AddComponent },  
-      { path: 'list-employee', component: ListComponent },
-      { path: 'update-employee', component: UpdateComponent
-    }
-  ])  
+    HttpClientModule
   ],
   providers: [EmployesService],
   bootstrap: [AppComponent,AddComponent,ListComponent,UpdateComponent]

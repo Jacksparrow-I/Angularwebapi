@@ -14,7 +14,7 @@ export class EmployesService {
  }  
 
  addEmployees(Employes) {   
-  return this.http.post(environment.apiBaseURI + '/api/Employes/AddEmployes',Employes)  
+  return this.http.post(environment.apiBaseURI + '/api/Employes/AddEmployes',Employes,{responseType:'text' as 'json'})  
 }  
 
 updateEmployees(Employes) {   
