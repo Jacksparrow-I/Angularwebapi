@@ -3,13 +3,12 @@ import { HttpClient } from "@angular/common/http";
 import { EmployesService } from '../../employes.service'; 
 import { NgForm, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';  
 import { Router, ActivatedRoute } from '@angular/router';
-
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  selector: 'app-update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.css']
 })
-export class AddComponent implements OnInit {
+export class UpdateComponent implements OnInit {
 
   employeeForm: FormGroup;
   title: string = "Add Employee";  
@@ -18,18 +17,15 @@ export class AddComponent implements OnInit {
 
   constructor(private http: HttpClient,private employeeService: EmployesService,private fb: FormBuilder,private router: Router) { }
 
-  
-
   ngOnInit(): void {
-    
   }
 
-  save() {  
+  update() {  
     
     if (this.employeeForm.valid) {  
-        this.employeeService.addEmployees(this.employeeForm.value)  
+        this.employeeService.updateEmployees(this.employeeForm.value)  
             .subscribe((data) => {  
-                this.router.navigate(['/list-employee']);  
+                this.router.navigate(['/update-employee']);  
             }, error => this.errorMessage = error)  
     }
 }  

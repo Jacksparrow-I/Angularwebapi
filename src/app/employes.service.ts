@@ -17,6 +17,14 @@ export class EmployesService {
   return this.http.post(environment.apiBaseURI + '/api/Employes/AddEmployes',Employes)  
 }  
 
+updateEmployees(Employes) {   
+  return this.http.post(environment.apiBaseURI + '/api/Employes/UpdateEmployes',Employes)  
+}  
+
+deleteEmployees(id) {   
+  return this.http.post(environment.apiBaseURI + '/api/Employes/DeleteEmployes',id)  
+}
+
 
  
 }
