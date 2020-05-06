@@ -23,18 +23,18 @@ export class AddComponent implements OnInit {
     
   }
 
-  // save() {  
+  registerNow() {  
      
-  //       this.employeeService.addEmployees()  
-  //           .subscribe((data) => {  
-  //               this.router.navigate(['/list-employee']);  
-  //           }, error => this.errorMessage = error)  
-  //   }
+        this.employeeService.addEmployees(this.emp)
+            .subscribe((data) => {  
+                this.router.navigate(['/listemp']);  
+            }, error => this.message = error)  
+    }
 
-public registerNow(){
-  let resp=this.employeeService.addEmployees(this.emp);
-  resp.subscribe((data)=>this.message=data);
+// public registerNow(){
+//   let resp=this.employeeService.addEmployees(this.emp);
+//   resp.subscribe((data)=>this.message=data);
    
-}
+// }
 
 }

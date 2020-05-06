@@ -22,11 +22,12 @@ import { UpdateComponent } from './employee/update/update.component';
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     FormsModule,  
     AppRoutingModule,
     HttpClientModule
   ],
   providers: [EmployesService],
-  bootstrap: [AppComponent,AddComponent,ListComponent,UpdateComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

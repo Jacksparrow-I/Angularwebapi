@@ -1,4 +1,5 @@
 export class Emp{
+
     constructor(
         public name:string,
         public email:string,

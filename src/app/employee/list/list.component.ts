@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http"; 
 import { EmployesService } from '../../employes.service'; 
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -9,7 +10,7 @@ import { EmployesService } from '../../employes.service';
 })
 export class ListComponent implements OnInit {
 
-  constructor(private http: HttpClient,private employeeService: EmployesService) { }
+  constructor(private http: HttpClient,private employeeService: EmployesService,public router: Router) { }
 
   public empList: any;
 

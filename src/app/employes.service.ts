@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http"; 
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +13,14 @@ export class EmployesService {
     return this.http.get(environment.apiBaseURI + '/api/Employes/GetEmp')  
  }  
 
- addEmployees(Employes) {   
-  return this.http.post(environment.apiBaseURI + '/api/Employes/AddEmployes',Employes,{responseType:'text' as 'json'})  
+ addEmployees(emp) {   
+  
+  return this.http.post(environment.apiBaseURI + '/api/Employes/AddEmployes',emp,{responseType:'text' as 'json'}) 
+  
 }  
 
-updateEmployees(Employes) {   
-  return this.http.post(environment.apiBaseURI + '/api/Employes/UpdateEmployes',Employes)  
+updateEmployees(emp) {   
+  return this.http.post(environment.apiBaseURI + '/api/Employes/UpdateEmployes',emp)  
 }  
 
 deleteEmployees(id) {   
