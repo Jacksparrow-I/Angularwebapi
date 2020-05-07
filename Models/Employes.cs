@@ -29,7 +29,7 @@ namespace angularwebapi.Models
         [Required]
         public string DepartmentName { get; set; }
         [Required]
-        public DateTime DOB { get; set; }
+        public string DOB { get; set; }
         [Required]
         public int Salary { get; set; }
 

@@ -1,14 +1,16 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.Threading.Tasks;
 using angularwebapi.Models;
 using System;
 using System.Data;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace angularwebapi.Repository
 {
     public class AddRepo
     {
-        public bool AddEmp(Employes st)
+        public string AddEmp(Employes st)
         {
             try
             {
@@ -27,7 +29,7 @@ namespace angularwebapi.Repository
                 sc.Open();
                 bool isExecute = Convert.ToBoolean(cd.ExecuteNonQuery());
                 sc.Close();
-                return isExecute;
+                return "hello world";
             }
 
             catch (Exception ex)
@@ -35,14 +37,15 @@ namespace angularwebapi.Repository
                 Console.WriteLine(ex.Message);
             }
 
-            return true;
+            return /*true*/ "hello world";
         }
 
         public bool UpdateEmp(Employes st)
         {
             try
             {
-                SqlConnection sc = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=work;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); SqlCommand cd = new SqlCommand("UpdateEmployee", sc);
+                SqlConnection sc = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=work;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); 
+                SqlCommand cd = new SqlCommand("UpdateEmployee", sc);
                 cd.CommandType = System.Data.CommandType.StoredProcedure;
                 cd.Parameters.AddWithValue("@Id", st.Id);
                 cd.Parameters.AddWithValue("@Name", st.Name);
@@ -68,7 +71,8 @@ namespace angularwebapi.Repository
 
         public List<Employes> GetEmp()
         {
-            SqlConnection sc = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=work;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); List<Employes> s2 = new List<Employes>();
+            SqlConnection sc = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=work;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); 
+            List<Employes> s2 = new List<Employes>();
 
             SqlDataAdapter sa = new SqlDataAdapter("Getemployee", sc);
             DataTable dt = new DataTable();
@@ -90,7 +94,7 @@ namespace angularwebapi.Repository
                         DesignationName = Convert.ToString(dr["DesignationName"]),
                         Department = Convert.ToInt32(dr["Department"]),
                         DepartmentName = Convert.ToString(dr["DepartmentName"]),
-                        DOB = Convert.ToDateTime(dr["DOB"]),
+                        DOB = Convert.ToString(dr["DOB"]),
                         Salary = Convert.ToInt32(dr["Salary"]),
                     }
                     );
@@ -100,7 +104,8 @@ namespace angularwebapi.Repository
 
         public bool DeleteEmp(int ID)
         {
-            SqlConnection sc = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=work;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); SqlCommand cd = new SqlCommand("DeleteEmployee", sc);
+            SqlConnection sc = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=work;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            SqlCommand cd = new SqlCommand("DeleteEmployee", sc);
             cd.CommandType = CommandType.StoredProcedure;
             cd.Parameters.AddWithValue("@Id", ID);
             sc.Open();

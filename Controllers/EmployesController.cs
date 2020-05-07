@@ -13,6 +13,7 @@ namespace angularwebapi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowMyOrigin")]
     public class EmployesController : ControllerBase
     {
 
@@ -24,12 +25,30 @@ namespace angularwebapi.Controllers
             return (sb.GetEmp());
         }
 
+
+        
         [HttpPost("AddEmployes")]
-        public Boolean AddEmployes([FromBody]Employes emp)
+        public string AddEmployes([FromBody]Employes emp)
         {
             AddRepo sb = new AddRepo();
 
             return (sb.AddEmp(emp));
+        }
+
+        [HttpPost("UpdateEmployes")]
+        public bool UpdateEmployes([FromBody]Employes emp)
+        {
+            AddRepo sb = new AddRepo();
+
+            return (sb.UpdateEmp(emp));
+        }
+
+        [HttpPost("DeleteEmployes")]
+        public bool DeleteEmployes([FromBody]Employes emp)
+        {
+            AddRepo sb = new AddRepo();
+
+            return (sb.DeleteEmp(emp.Id));
         }
     }
 
