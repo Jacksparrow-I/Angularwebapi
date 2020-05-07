@@ -10,21 +10,21 @@ export class EmployesService {
   constructor(private http: HttpClient) { }
 
   getEmployees() {   
-    return this.http.get(environment.apiBaseURI + '/api/Employes/GetEmp')  
+    return this.http.get(environment.apiBaseURI + '/api/Employes/GetEmp')  ;
  }  
 
  addEmployees(emp) {   
   
-  return this.http.post(environment.apiBaseURI + '/api/Employes/AddEmployes',emp,{responseType:'text' as 'json'}) 
+  return this.http.post(environment.apiBaseURI + '/api/Employes/AddEmployes',emp,{responseType:'text' as 'json'}) ;
   
 }  
 
 updateEmployees(emp) {   
-  return this.http.post(environment.apiBaseURI + '/api/Employes/UpdateEmployes',emp)  
+  return this.http.post(environment.apiBaseURI + '/api/Employes/UpdateEmployes',emp)  ;
 }  
 
 deleteEmployees(id) {   
-  return this.http.post(environment.apiBaseURI + '/api/Employes/DeleteEmployes',id)  
+  return this.http.post(environment.apiBaseURI + '/api/Employes/DeleteEmployes',id)  ;
 }
 
 

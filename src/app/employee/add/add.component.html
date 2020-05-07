@@ -47,23 +47,25 @@
 
     <!-- Department -->
     <label>Department</label>
-    <select class="browser-default custom-select mb-4" [(ngModel)]="emp.department" name="department">
+    <input type="number" id="department" [(ngModel)]="emp.department" name="department"  class="form-control mb-4" placeholder="gender" >
+    <!-- <select class="browser-default custom-select mb-4" [(ngModel)]="emp.department" name="department">
         <option value="" disabled>Choose option</option>
-        <option value="1" selected>.NET</option>
-        <option value="2">Xamrin</option>
-        <option value="3">SAP</option>
-        <option value="4">BI</option>
-    </select>
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select> -->
 
     <!-- Designation -->
     <label>Designation</label>
-    <select class="browser-default custom-select mb-4" [(ngModel)]="emp.designation" name="designation">
+    <input type="number" id="designation" [(ngModel)]="emp.designation" name="designation"  class="form-control mb-4" placeholder="gender" >
+    <!-- <select class="browser-default custom-select mb-4" [(ngModel)]="emp.designation" name="designation">
         <option value="" disabled>Choose option</option>
-        <option value="1" selected>Employee</option>
-        <option value="2">Leader</option>
-        <option value="3">Manager</option>
-        <option value="4">Trainee</option>
-    </select>
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select> -->
      
     <label>DOB</label>
     <div class="form-group">
@@ -75,12 +77,12 @@
         <input type="number" name="salary" [(ngModel)]="emp.salary"  id="salary"  class="form-control my-input" placeholder="Salary">
      </div>
      
-
-    <!-- Copy -->
+<!-- 
+   
     <div class="custom-control custom-checkbox mb-4">
         <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
         <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
-    </div>
+    </div> -->
     
 
     <!-- Send button -->

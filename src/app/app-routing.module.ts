@@ -9,11 +9,11 @@ import { UpdateComponent } from './employee/update/update.component';
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'addemp', pathMatch: 'full' }, 
-  { path: 'addemp', component: AddComponent },  
-  { path: 'listemp', component: ListComponent },
-  { path: 'updateemp', component: UpdateComponent },
-  { path: '**', redirectTo: 'home' }
+  // { path: '', redirectTo: 'addemp', pathMatch: 'full' }, 
+  // { path: 'addemp', component: AddComponent },  
+  // { path: 'listemp', component: ListComponent },
+  // { path: 'updateemp', component: UpdateComponent },
+  // { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({

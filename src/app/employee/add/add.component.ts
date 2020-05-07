@@ -12,29 +12,26 @@ import { Emp } from '../../emp';
 export class AddComponent implements OnInit {
 
   
-  emp: Emp=new Emp("","",0,"",0,"","",0);
+  emp: Emp = new Emp ("","",0,"",0,0,"",0);
   message:any;   
 
   constructor(public http: HttpClient,private employeeService: EmployesService,public router: Router) { }
 
-  
-
   ngOnInit(): void {
-    
   }
 
-  registerNow() {  
+  // registerNow() {  
      
-        this.employeeService.addEmployees(this.emp)
-            .subscribe((data) => {  
-                this.router.navigate(['/listemp']);  
-            }, error => this.message = error)  
-    }
+  //       this.employeeService.addEmployees(this.emp)
+  //           .subscribe((data) => {  
+  //               this.router.navigate(['/listemp']);  
+  //           }, error => this.message = error)  
+  //   }
 
-// public registerNow(){
-//   let resp=this.employeeService.addEmployees(this.emp);
-//   resp.subscribe((data)=>this.message=data);
+public registerNow(){
+  let resp=this.employeeService.addEmployees(this.emp);
+  resp.subscribe((data)=>this.message=data);
    
-// }
+}
 
 }

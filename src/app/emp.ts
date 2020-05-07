@@ -6,7 +6,7 @@ export class Emp{
         public employeeCode:number,
         public gender:string,
         public department:number,
-        public designation:string,
+        public designation:number,
         public dob:string,
         public salary:number
     ){}
