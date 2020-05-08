@@ -45,6 +45,17 @@
       </div>
     </div> -->
 
+    <!-- Designation -->
+    <label>Designation</label>
+    <input type="number" id="designation" [(ngModel)]="emp.designation" name="designation"  class="form-control mb-4" placeholder="gender" >
+    <!-- <select class="browser-default custom-select mb-4" [(ngModel)]="emp.designation" name="designation">
+        <option value="" disabled>Choose option</option>
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select> -->
+
     <!-- Department -->
     <label>Department</label>
     <input type="number" id="department" [(ngModel)]="emp.department" name="department"  class="form-control mb-4" placeholder="gender" >
@@ -56,20 +67,10 @@
         <option value="4">4</option>
     </select> -->
 
-    <!-- Designation -->
-    <label>Designation</label>
-    <input type="number" id="designation" [(ngModel)]="emp.designation" name="designation"  class="form-control mb-4" placeholder="gender" >
-    <!-- <select class="browser-default custom-select mb-4" [(ngModel)]="emp.designation" name="designation">
-        <option value="" disabled>Choose option</option>
-        <option value="1" selected>1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select> -->
      
     <label>DOB</label>
     <div class="form-group">
-        <input type="date" id="dob" [(ngModel)]="emp.dob" name="dob" value="datetime" class="datepicker">
+        <input type="date" id="dob" [(ngModel)]="emp.dob" name="dob"  class="form-control my-input">
     </div>
 
     <label>Salary</label>
@@ -77,9 +78,7 @@
         <input type="number" name="salary" [(ngModel)]="emp.salary"  id="salary"  class="form-control my-input" placeholder="Salary">
      </div>
      
-<!-- 
-   
-    <div class="custom-control custom-checkbox mb-4">
+    <!--<div class="custom-control custom-checkbox mb-4">
         <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
         <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
     </div> -->

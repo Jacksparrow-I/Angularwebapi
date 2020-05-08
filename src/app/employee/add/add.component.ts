@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http"; 
 import { EmployesService } from '../../employes.service'; 
 import { Router, ActivatedRoute } from '@angular/router';
-import { Emp } from '../../emp';
+import { Emp, Employee } from '../../emp';
+
 
 @Component({
   selector: 'app-add',
@@ -14,8 +15,9 @@ export class AddComponent implements OnInit {
   
   emp: Emp = new Emp ("","",0,"",0,0,"",0);
   message:any;   
+  // employee: Employee = new Employee ("hello hi");
 
-  constructor(public http: HttpClient,private employeeService: EmployesService,public router: Router) { }
+  constructor(public http: HttpClient,private employeeService: EmployesService) { }
 
   ngOnInit(): void {
   }
