@@ -10,7 +10,7 @@ namespace angularwebapi.Repository
 {
     public class AddRepo
     {
-        public string AddEmp(Employes st)
+        public int AddEmp(Employes st)
         {
             try
             {
@@ -27,18 +27,64 @@ namespace angularwebapi.Repository
                 cd.Parameters.AddWithValue("@DOB", st.DOB);
                 cd.Parameters.AddWithValue("@Salary", st.Salary);
                 sc.Open();
-                bool isExecute = Convert.ToBoolean(cd.ExecuteNonQuery());
+                cd.ExecuteNonQuery();
+                //bool isExecute = Convert.ToBoolean(cd.ExecuteNonQuery());
                 sc.Close();
-                return "hello world";
+                //return isExecute;
+                return 1;
             }
-
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine(ex.Message);
+                throw;
             }
-
-            return /*true*/ "hello world";
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
+            //return true;
         }
+        //        bool isExecute = Convert.ToBoolean(cd.ExecuteNonQuery());
+        //        sc.Close();
+        //        return isExecute;
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //    }
+
+        //    return true;
+        //}
+
+        //public string AddEmp(Employes st)
+        //{
+        //    try
+        //    {
+        //        SqlConnection sc = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = work; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+
+        //        SqlCommand cd = new SqlCommand("AddEmployee", sc);
+        //        cd.CommandType = System.Data.CommandType.StoredProcedure;
+        //        cd.Parameters.AddWithValue("@Name", st.Name);
+        //        cd.Parameters.AddWithValue("@Email", st.Email);
+        //        cd.Parameters.AddWithValue("@EmployeeCode", st.EmployeeCode);
+        //        cd.Parameters.AddWithValue("@Gender", st.Gender);
+        //        cd.Parameters.AddWithValue("@Designation", st.Designation);
+        //        cd.Parameters.AddWithValue("@Department", st.Department);
+        //        cd.Parameters.AddWithValue("@DOB", st.DOB);
+        //        cd.Parameters.AddWithValue("@Salary", st.Salary);
+        //        sc.Open();
+        //        bool isExecute = Convert.ToBoolean(cd.ExecuteNonQuery());
+        //        sc.Close();
+        //        return "hello world";
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //    }
+
+        //    return /*true*/ "hello world";
+        //}
 
         public bool UpdateEmp(Employes st)
         {
@@ -102,12 +148,12 @@ namespace angularwebapi.Repository
             return s2;
         }
 
-        public bool DeleteEmp(int ID)
+        public bool DeleteEmp(int Id)
         {
             SqlConnection sc = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=work;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             SqlCommand cd = new SqlCommand("DeleteEmployee", sc);
             cd.CommandType = CommandType.StoredProcedure;
-            cd.Parameters.AddWithValue("@Id", ID);
+            cd.Parameters.AddWithValue("@Id", Id);
             sc.Open();
             int isExecute = cd.ExecuteNonQuery();
             sc.Close();

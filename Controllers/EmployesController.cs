@@ -26,14 +26,23 @@ namespace angularwebapi.Controllers
         }
 
 
-        
         [HttpPost("AddEmployes")]
-        public string AddEmployes([FromBody]Employes emp)
+        public int AddEmployes([FromBody]Employes emp)
         {
             AddRepo sb = new AddRepo();
 
             return (sb.AddEmp(emp));
         }
+
+        //[HttpPost("AddEmployes")]
+        //public string AddEmployes([FromBody]Employee emp)
+        //{
+        //    //   AddRepo sb = new AddRepo();
+
+        //    // return (sb.AddEmp(emp));
+
+        //    return "hi";
+        //}
 
         [HttpPost("UpdateEmployes")]
         public bool UpdateEmployes([FromBody]Employes emp)
@@ -43,12 +52,13 @@ namespace angularwebapi.Controllers
             return (sb.UpdateEmp(emp));
         }
 
-        [HttpPost("DeleteEmployes")]
-        public bool DeleteEmployes([FromBody]Employes emp)
+
+        [HttpDelete("DeleteEmployes/{Id}")]
+        public bool DeleteEmployes(int Id)
         {
             AddRepo sb = new AddRepo();
 
-            return (sb.DeleteEmp(emp.Id));
+            return (sb.DeleteEmp(Id));
         }
     }
 

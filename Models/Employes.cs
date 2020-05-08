@@ -7,6 +7,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace angularwebapi.Models
 {
+
+    public class Employee
+    {
+        public string EmployeeName { get; set; }
+    }
     public class Employes
     {
         [Key]
@@ -20,13 +25,9 @@ namespace angularwebapi.Models
         public int EmployeeCode { get; set; }
         [Required]
         public string Gender { get; set; }
-        [Required]
         public int Designation { get; set; }
-        [Required]
         public string DesignationName { get; set; }
-        [Required]
         public int Department { get; set; }
-        [Required]
         public string DepartmentName { get; set; }
         [Required]
         public string DOB { get; set; }
