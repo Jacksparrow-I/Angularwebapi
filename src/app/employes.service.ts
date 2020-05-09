@@ -24,7 +24,6 @@ export class EmployesService {
  addEmployees(emp:Emp) {   
   
   return this.http.post(environment.apiBaseURI + "/api/Employes/AddEmployes",emp) ;
-  
 }  
 
 updateEmployees(emp:Employee) {   

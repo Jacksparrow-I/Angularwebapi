@@ -85,8 +85,9 @@
     
 
     <!-- Send button -->
-    <button class="btn btn-info btn-block" name="submit_reg" value="Register" (click)="registerNow()" type="submit">Send</button>
-    
+    <button routerLink = "/List-Employee" class="btn btn-info btn-block" name="submit_reg" value="Register" (click)="registerNow()" type="submit">Send</button>
+    <button routerLink = "/List-Employee" class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit">Go to List</button>
+    <router-outlet></router-outlet>
 </form>
 
 </body>  

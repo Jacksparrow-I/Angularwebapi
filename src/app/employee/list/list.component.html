@@ -11,7 +11,7 @@
     <title>Hello, world!</title>
   </head>
 <p>  
-          <a [routerLink]="['/addemp']" >Create New</a>  
+  
 </p> 
   <body>
     <h1>Hello, world!</h1>
@@ -49,12 +49,14 @@
                   <td>  
                   </td>  
                   <td><button class="btn btn-danger btn-block" name="submit_reg" value="delete" (click)="deletedata(list.id)" type="submit">Delete</button></td>
-                  <td><button type="button" class="btn btn-info btn-block">Update</button></td> 
+                  <td><button routerLink = "/Update-Employee" type="button" class="btn btn-info btn-block">Update</button></td> 
 
                 </tr>  
               </tbody>  
             </table> 
           </div>  
+          <button routerLink = "/Add-Employee" class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit">Add New Employee</button>
+      <router-outlet></router-outlet>
         </div>  
       </div>  
     <!-- Optional JavaScript -->

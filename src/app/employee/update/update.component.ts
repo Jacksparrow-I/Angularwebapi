@@ -22,8 +22,12 @@ export class UpdateComponent implements OnInit {
   }
 
   public Updatedata(){
+    if(confirm('Your data updated successfully !'))
+   {
     let resp=this.employeeService.updateEmployees(this.emp);
     resp.subscribe((data)=>this.message=data);
+   }
+    
      
   }
   

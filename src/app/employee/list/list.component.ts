@@ -33,8 +33,12 @@ export class ListComponent implements OnInit {
 // }
 
  deletedata(id:number){
-  let resp= this.employeeService.deleteEmployees(id);
-  resp.subscribe((data)=>this.empList=data);
+   if(confirm('Are you sure you want to delet this record !'))
+   {
+    let resp= this.employeeService.deleteEmployees(id);
+    resp.subscribe((data)=>this.empList=data);
+   }
+  
  }
  
 }

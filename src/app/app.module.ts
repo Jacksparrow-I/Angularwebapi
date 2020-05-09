@@ -19,7 +19,7 @@ import { UpdateComponent } from './employee/update/update.component';
     AddComponent,
     ListComponent,
     UpdateComponent
-  ],
+  ],  
   imports: [
     BrowserModule,
     RouterModule,
