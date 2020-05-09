@@ -15,14 +15,15 @@ export class Emp{
 export class Employee{
 
     constructor(
-        public employeeName:string,
-        // public email:string,
-        // public employeeCode:number,
-        // public gender:string,
-        // public department:number,
-        // public designation:number,
-        // public dob:string,
-        // public salary:number
+        public id:number,
+        public name:string,
+        public email:string,
+        public employeeCode:number,
+        public gender:string,
+        public designation:number,
+        public department:number,
+        public dob:string,
+        public salary:number
     ){}
 }
 

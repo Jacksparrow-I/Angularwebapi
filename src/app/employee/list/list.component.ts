@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http"; 
 import { EmployesService } from '../../employes.service'; 
 import { Router, ActivatedRoute } from '@angular/router';
-import { Emp } from '../../emp';
+
 
 @Component({
   selector: 'app-list',
@@ -14,6 +14,8 @@ export class ListComponent implements OnInit {
   constructor(private http: HttpClient,private employeeService: EmployesService,public router: Router) { }
 
   public empList: any;
+
+  
 
   ngOnInit(): void {
 
@@ -34,5 +36,5 @@ export class ListComponent implements OnInit {
   let resp= this.employeeService.deleteEmployees(id);
   resp.subscribe((data)=>this.empList=data);
  }
-
+ 
 }

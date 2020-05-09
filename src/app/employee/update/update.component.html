@@ -6,82 +6,91 @@
 </head>  
 
 <body>  
+    <h1>Update Employee</h1>  
 
 <!-- Default form contact -->
 
-<form class="container contact-form border-light p-5" action="#!">
+<form class="container contact-form border-light p-5"  >
 
     
 
     <p class="h4 mb-4">Employee Form</p>
 
+    <label>Employee ID</label>
+    <div class="form-group">
+        <input type="number" [(ngModel)]="emp.id"  name="id" id="id"  class="form-control my-input" placeholder="EmployeeCode">
+     </div>
+
     <!-- Name -->
     <label>Name</label>
-    <input type="text" id="name" class="form-control mb-4" placeholder="Name">
+    <input type="text" id="name" [(ngModel)]="emp.name" name="name"  class="form-control mb-4" placeholder="Name" >
 
     <!-- Email -->
     <label>Email</label>
-    <input type="email" id="email" class="form-control mb-4" placeholder="E-mail">
+    <input type="email" id="email" [(ngModel)]="emp.email" name="email" class="form-control mb-4" placeholder="E-mail" >
 
     <label>Employee Code</label>
     <div class="form-group">
-        <input type="number" min="0" name="EmployeeCode" id="employeecode"  class="form-control my-input" placeholder="EmployeeCode">
+        <input type="number" [(ngModel)]="emp.employeeCode"  name="EmployeeCode" id="employeeCode"  class="form-control my-input" placeholder="EmployeeCode">
      </div>
 
-     <div>
-     <div>
+     
         <label>Gender</label>
+     <div>
+        <input type="text" id="gender" [(ngModel)]="emp.gender" name="gender"  class="form-control mb-4" placeholder="gender" >
      </div>
-     <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+
+     <!-- <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="gender"  class="custom-control-input">
         <label class="custom-control-label" for="customRadioInline1">Male</label>
       </div>
       <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+        <input type="radio" id="gender"  class="custom-control-input">
         <label class="custom-control-label" for="customRadioInline2">Female</label>
       </div>
-    </div>
-
-    <!-- Department -->
-    <label>Department</label>
-    <select class="browser-default custom-select mb-4">
-        <option value="" disabled>Choose option</option>
-        <option value="1" selected>Department</option>
-        <option value="2">.NET</option>
-        <option value="3">SAP</option>
-        <option value="4">BI</option>
-    </select>
+    </div> -->
 
     <!-- Designation -->
     <label>Designation</label>
-    <select class="browser-default custom-select mb-4">
+    <input type="number" id="designation" [(ngModel)]="emp.designation" name="designation"  class="form-control mb-4" placeholder="gender" >
+    <!-- <select class="browser-default custom-select mb-4" [(ngModel)]="emp.designation" name="designation">
         <option value="" disabled>Choose option</option>
-        <option value="1" selected>Designation</option>
-        <option value="2">Leader</option>
-        <option value="3">Manager</option>
-        <option value="4">Trainee</option>
-    </select>
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select> -->
+
+    <!-- Department -->
+    <label>Department</label>
+    <input type="number" id="department" [(ngModel)]="emp.department" name="department"  class="form-control mb-4" placeholder="gender" >
+    <!-- <select class="browser-default custom-select mb-4" [(ngModel)]="emp.department" name="department">
+        <option value="" disabled>Choose option</option>
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select> -->
+
      
     <label>DOB</label>
     <div class="form-group">
-        <input type="text" id="dob" value="datetime" class="datepicker">
+        <input type="date" id="dob" [(ngModel)]="emp.dob" name="dob"  class="form-control my-input">
     </div>
 
     <label>Salary</label>
     <div class="form-group">
-        <input type="number" min="0" name="Salary" id="Salary"  class="form-control my-input" placeholder="Salary">
+        <input type="number" name="salary" [(ngModel)]="emp.salary"  id="salary"  class="form-control my-input" placeholder="Salary">
      </div>
      
-
-    <!-- Copy -->
-    <div class="custom-control custom-checkbox mb-4">
+    <!--<div class="custom-control custom-checkbox mb-4">
         <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
         <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
-    </div>
+    </div> -->
     
 
     <!-- Send button -->
-    <button class="btn btn-info btn-block" type="submit">Send</button>
+    <button class="btn btn-info btn-block" name="submit_reg" value="Register" (click)="Updatedata()" type="submit">Update</button>
     
 </form>
 
