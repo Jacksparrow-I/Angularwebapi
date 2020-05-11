@@ -15,6 +15,13 @@ export class EmployesService {
     return this.http.get(environment.apiBaseURI + "/api/Employes/GetEmp")  ;
  }  
 
+ getDepartment() {   
+    return this.http.get(environment.apiBaseURI + "/api/Employes/GetDepartment")  ;
+ } 
+
+ getDesignation() {   
+    return this.http.get(environment.apiBaseURI + "/api/Employes/GetDesignation")  ;
+ } 
 //  addEmployees(emp:Employee) {   
   
 //   return this.http.post(environment.apiBaseURI + '/api/Employes/AddEmployes',emp) ;

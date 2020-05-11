@@ -12,14 +12,21 @@ import { Emp, Employee } from '../../emp';
 })
 export class AddComponent implements OnInit {
 
-  
+  public disList: any;
+  public depList: any;
   emp: Emp = new Emp ("","",0,"",0,0,"",0);
   message:any;   
   // employee: Employee = new Employee ("hello hi");
 
-  constructor(public http: HttpClient,private employeeService: EmployesService) { }
+  constructor(public http: HttpClient,private employeeService: EmployesService,public router: Router) { }
 
   ngOnInit(): void {
+
+    this.employeeService.getDepartment()
+      .subscribe((data) => this.disList=(data));
+
+      this.employeeService.getDesignation()
+      .subscribe((data) => this.depList=(data));
   }
 
   // registerNow() {  
