@@ -12,15 +12,15 @@ export class EmployesService {
   constructor(private http: HttpClient) { }
 
   getEmployees() {   
-    return this.http.get(environment.apiBaseURI + "/api/Employes/GetEmp")  ;
+    return this.http.get(environment.apiBaseURI + "/api/Employee/GetItems")  ;
  }  
 
  getDepartment() {   
-    return this.http.get(environment.apiBaseURI + "/api/Employes/GetDepartment")  ;
+    return this.http.get(environment.apiBaseURI + "/api/Employee/GetDepartment")  ;
  } 
 
  getDesignation() {   
-    return this.http.get(environment.apiBaseURI + "/api/Employes/GetDesignation")  ;
+    return this.http.get(environment.apiBaseURI + "/api/Employee/GetDesignation")  ;
  } 
 //  addEmployees(emp:Employee) {   
   
@@ -30,15 +30,15 @@ export class EmployesService {
 
  addEmployees(emp:Emp) {   
   
-  return this.http.post(environment.apiBaseURI + "/api/Employes/AddEmployes",emp) ;
+  return this.http.post(environment.apiBaseURI + "/api/Employee/SaveItem",emp) ;
 }  
 
 updateEmployees(emp:Employee) {   
-  return this.http.post(environment.apiBaseURI + "/api/Employes/UpdateEmployes",emp)  ;
+  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateItem",emp)  ;
 }  
 
 deleteEmployees(id) {   
-  return this.http.delete(environment.apiBaseURI + "/api/Employes/DeleteEmployes/"+id)  ;
+  return this.http.delete(environment.apiBaseURI + "/api/Employee/DeleteItem/"+id)  ;
 }
 
  
