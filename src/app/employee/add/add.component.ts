@@ -38,8 +38,12 @@ export class AddComponent implements OnInit {
   //   }
 
 public registerNow(){
-  let resp=this.employeeService.addEmployees(this.emp);
-  resp.subscribe((data)=>this.message=data);
+  if(confirm('your record added Sucessfully!'))
+   {
+    let resp=this.employeeService.addEmployees(this.emp);
+    resp.subscribe((data)=>this.message=data);
+   }
+  
    
 }
 

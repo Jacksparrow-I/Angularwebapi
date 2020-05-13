@@ -31,7 +31,10 @@
 
      
     <label>Gender</label>
-     <div class="form-group">
+    <div class="form-group">
+        <input type="text" [(ngModel)]="emp.gender"  name="gender" id="gender"  class="form-control mb-4" placeholder="gender">
+    </div>
+     <!-- <div class="form-group">
         <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" [(ngModel)]="emp.gender" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
             <label class="custom-control-label" for="customRadioInline1">Male</label>
@@ -40,33 +43,23 @@
             <input type="radio" [(ngModel)]="emp.gender" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
             <label class="custom-control-label" for="customRadioInline2">Female</label>
           </div>
-        </div>
+        </div> -->
 
-    <!-- <div class="custom-control custom-radio">
-        <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
-        <label class="custom-control-label" for="customControlValidation2">Toggle this custom radio</label>
-      </div>
-      <div class="custom-control custom-radio mb-3">
-        <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
-        <label class="custom-control-label" for="customControlValidation3">Or toggle this other custom radio</label>
-        <div class="invalid-feedback">More example invalid feedback text</div>
-      </div>
- -->
     <!-- Designation -->
     <label>Designation</label>
-    <!-- <input type="number" id="designation" [(ngModel)]="emp.designation" name="designation"  class="form-control mb-4" placeholder="gender" > -->
-    <select class="browser-default custom-select mb-4" [(ngModel)]="emp.designation" name="designation">
+    <input type="number" id="designation" [(ngModel)]="emp.designation" name="designation"  class="form-control mb-4" placeholder="gender" >
+    <!-- <select class="browser-default custom-select mb-4" [(ngModel)]="emp.designation" name="designation">
         <option value="" disabled>Choose option</option>
         <option *ngFor="let dis of disList"  value="dis.designationId">{{dis.designationName}}</option>
-    </select>
+    </select> -->
 
     <!-- Department -->
     <label>Department</label>
-    <!-- <input type="number" id="department" [(ngModel)]="emp.department" name="department"  class="form-control mb-4" placeholder="gender" > -->
-    <select class="browser-default custom-select mb-4" id="department" name="department" [(ngModel)]="emp.department" name="department">
+    <input type="number" id="department" [(ngModel)]="emp.department" name="department"  class="form-control mb-4" placeholder="gender" >
+    <!-- <select class="browser-default custom-select mb-4" id="department" name="department" [(ngModel)]="emp.department" name="department">
         <option value="" disabled>Choose option</option>
         <option *ngFor="let dep of depList" value="dep.departmentId">{{dep.departmentName}}</option>
-    </select>
+    </select> -->
 
      
     <label>DOB</label>
@@ -84,7 +77,6 @@
         <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
     </div> -->
     
-
     <!-- Send button -->
     <button routerLink = "/List-Employee" class="btn btn-info btn-block" name="submit_reg" value="Register" (click)="registerNow()" type="submit">Send</button>
     <button routerLink = "/List-Employee" class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit">Go to List</button>
