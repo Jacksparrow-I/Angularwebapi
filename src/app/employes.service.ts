@@ -3,6 +3,10 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from 'src/environments/environment'
 import {Emp} from './emp';
 import {Employee} from './emp';
+import {Dep} from './emp';
+import {Department} from './emp';
+import {Des} from './emp';
+import {Desigantion} from './emp';
 
 @Injectable({
   providedIn: 'root'
@@ -11,22 +15,53 @@ export class EmployesService {
 
   constructor(private http: HttpClient) { }
 
-  getEmployees() {   
-    return this.http.get(environment.apiBaseURI + "/api/Employee/GetItems")  ;
- }  
+
+
+//********************************************* Department ***************************************************//
+
 
  getDepartment() {   
     return this.http.get(environment.apiBaseURI + "/api/Employee/GetDepartment")  ;
  } 
 
+ addDepartment(emp:Dep) {   
+  
+  return this.http.post(environment.apiBaseURI + "/api/Employee/AddDepartment",emp) ;
+}  
+
+updateDepartment(emp:Department) {   
+  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateDepartment",emp)  ;
+}  
+
+deleteDepartment(departmentId) {   
+  return this.http.delete(environment.apiBaseURI + "/api/Employee/DeleteDepartment/"+departmentId)  ;
+}
+
+//********************************************* Designation ***************************************************//
+
+
  getDesignation() {   
     return this.http.get(environment.apiBaseURI + "/api/Employee/GetDesignation")  ;
  } 
-//  addEmployees(emp:Employee) {   
+
+ addDesignation(emp:Des) {   
   
-//   return this.http.post(environment.apiBaseURI + '/api/Employes/AddEmployes',emp) ;
-  
-// }  
+  return this.http.post(environment.apiBaseURI + "/api/Employee/AddDesignation",emp) ;
+}  
+
+updateDesignation(emp:Desigantion) {   
+  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateDesignation",emp)  ;
+}  
+
+deleteDesignation(designationId) {   
+  return this.http.delete(environment.apiBaseURI + "/api/Employee/DeleteDesignation/"+designationId)  ;
+}
+
+//********************************************* Employee ***************************************************//
+
+getEmployees() {   
+  return this.http.get(environment.apiBaseURI + "/api/Employee/GetItems")  ;
+}  
 
  addEmployees(emp:Emp) {   
   

@@ -11,6 +11,14 @@ import { EmployeeComponent } from './employee/employee.component';
 import { AddComponent } from './employee/add/add.component';
 import { ListComponent } from './employee/list/list.component';
 import { UpdateComponent } from './employee/update/update.component';
+import { DepartmentComponent } from './department/department.component';
+import { AdddepartmentComponent } from './department/adddepartment/adddepartment.component';
+import { ListdepartmentComponent } from './department/listdepartment/listdepartment.component';
+import { UpdatedepartmentComponent } from './department/updatedepartment/updatedepartment.component';
+import { DesignationComponent } from './designation/designation.component';
+import { AdddesignationComponent } from './designation/adddesignation/adddesignation.component';
+import { ListdesignationComponent } from './designation/listdesignation/listdesignation.component';
+import { UpdatedesignationComponent } from './designation/updatedesignation/updatedesignation.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +26,15 @@ import { UpdateComponent } from './employee/update/update.component';
     EmployeeComponent,
     AddComponent,
     ListComponent,
-    UpdateComponent
+    UpdateComponent,
+    DepartmentComponent,
+    AdddepartmentComponent,
+    ListdepartmentComponent,
+    UpdatedepartmentComponent,
+    DesignationComponent,
+    AdddesignationComponent,
+    ListdesignationComponent,
+    UpdatedesignationComponent
   ],  
   imports: [
     BrowserModule,

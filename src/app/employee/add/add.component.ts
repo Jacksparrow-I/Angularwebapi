@@ -41,7 +41,7 @@ public registerNow(){
   if(confirm('your record added Sucessfully!'))
    {
     let resp=this.employeeService.addEmployees(this.emp);
-    resp.subscribe((data)=>this.message=data);
+    resp.subscribe((data)=>this.message=(data));
    }
   
    

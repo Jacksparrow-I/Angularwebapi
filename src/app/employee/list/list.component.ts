@@ -19,13 +19,13 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
 
     this.employeeService.getEmployees()
-      .subscribe((data) => this.empList=(data));
+      .subscribe((data) => this.empList=data);
 
-      this.employeeService.getDepartment()
-      .subscribe((data) => this.empList=(data));
+      // this.employeeService.getDepartment()
+      // .subscribe((data) => this.empList=(data));
 
-      this.employeeService.getDesignation()
-      .subscribe((data) => this.empList=(data));
+      // this.employeeService.getDesignation()
+      // .subscribe((data) => this.empList=(data));
   }
 
 
