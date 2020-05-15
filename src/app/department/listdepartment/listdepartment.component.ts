@@ -21,4 +21,11 @@ export class ListdepartmentComponent implements OnInit {
 
   }
 
+  deletedata(departmentId:number){
+    if(confirm('Are you sure you want to delete this record !'))
+    {
+     let resp= this.employeeService.deleteDepartment(departmentId);
+     resp.subscribe((data)=>this.empList=data);
+    }
+  }
 }
