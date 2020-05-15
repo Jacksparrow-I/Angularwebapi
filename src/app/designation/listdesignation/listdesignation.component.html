@@ -1,1 +1,56 @@
-<p>listdesignation works!</p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- <title>Hello, world!</title> -->
+  </head>
+<p>  
+  
+</p> 
+  <body>
+    <!-- <div class="card-header" style="text-align: center;  margin-left:50px; margin-right:50px; margin-bottom:50px; font-weight:bold; font-size:xx-large;">  
+      Employee Form
+    </div>  -->
+    <div class="card" style="margin-left:50px; margin-right:50px; margin-bottom:50px;">  
+        <div class="card-header" style="font-weight:bold; font-size:x-large;">  
+        Department latest details 
+        </div>        
+        <div class="card-body">  
+          <div class="table-responsive" style="max-height:385px;">  
+            <table class="table mb-0" > 
+              <thead>  
+                <tr>  
+                    <th>Designation ID</th>  
+                    <th>Designation Name</th>   
+                </tr>  
+            </thead>   
+              <tbody>  
+                <tr *ngFor="let list of empList"> 
+                  <td>{{ list.designationId }}</td>  
+                  <td>{{ list.designationName }}</td>
+                  <td>  
+                  </td>  
+                  <td><button class="btn btn-danger btn-block" name="submit_reg" value="delete" (click)="deletedata(list.designationId)" type="submit">Delete</button></td>
+                  <td><button routerLink = "/Update-Designation" type="button" class="btn btn-info btn-block">Update</button></td> 
+
+                </tr>  
+              </tbody>  
+            </table> 
+          </div>  
+          <button routerLink = "/Add-Designation" class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit">Add New Employee</button>
+      <router-outlet></router-outlet>
+        </div>  
+      </div>  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

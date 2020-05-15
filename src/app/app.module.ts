@@ -19,6 +19,7 @@ import { DesignationComponent } from './designation/designation.component';
 import { AdddesignationComponent } from './designation/adddesignation/adddesignation.component';
 import { ListdesignationComponent } from './designation/listdesignation/listdesignation.component';
 import { UpdatedesignationComponent } from './designation/updatedesignation/updatedesignation.component';
+import { MasterpageComponent } from './masterpage/masterpage.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UpdatedesignationComponent } from './designation/updatedesignation/upda
     DesignationComponent,
     AdddesignationComponent,
     ListdesignationComponent,
-    UpdatedesignationComponent
+    UpdatedesignationComponent,
+    MasterpageComponent
   ],  
   imports: [
     BrowserModule,
