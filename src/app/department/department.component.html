@@ -1,0 +1,31 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <meta charset="utf-8" />  
+    
+</head>  
+
+<body>  
+    <!-- <h1>Add Employee</h1>   -->
+
+<!-- Default form contact -->
+<div class="card-header" style="text-align: center;  margin-left:50px; margin-right:50px; margin-bottom:50px; font-weight:bold; font-size:xx-large;">  
+    Department Form
+</div> 
+<form class="container contact-form border-light p-5"  >
+
+    <p class="h4 mb-4">Wellcome to Admin Page </p>
+
+    <!--<div class="custom-control custom-checkbox mb-4">
+        <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
+        <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
+    </div> -->
+    
+    <!-- Send button -->
+    <button routerLink = "/List-Department" class="btn btn-info btn-block" name="submit_reg" value="Register"  type="submit">Department</button>
+    <button routerLink = "/List-Designation" class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit">Designation</button>
+    <router-outlet></router-outlet>
+</form>
+
+</body>  
+</html>

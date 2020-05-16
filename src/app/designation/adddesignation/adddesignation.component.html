@@ -10,17 +10,21 @@
 
 <!-- Default form contact -->
 <div class="card-header" style="text-align: center;  margin-left:50px; margin-right:50px; margin-bottom:50px; font-weight:bold; font-size:xx-large;">  
-    Employee Form
+    Department Form
 </div> 
 <form class="container contact-form border-light p-5"  >
 
-    <p class="h4 mb-4">Enter details to Add employee </p>
+    <p class="h4 mb-4">Enter details to Add Department </p>
 
     <!-- Name -->
     <label>Department Name</label>
     <input type="text" id="designationName" [(ngModel)]="des.designationName" name="designationName"  class="form-control mb-4" placeholder="Name" >
+    
 
-     
+    <!-- <div style="text-align: center "*ngIf="message == 1"></div>
+    <h1>Department is Added Successfully</h1>
+    </div> -->
+    
     <!--<div class="custom-control custom-checkbox mb-4">
         <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
         <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>

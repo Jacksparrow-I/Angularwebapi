@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'Main-Page', pathMatch: 'full' }, 
 
   { path: 'Main-Page', component: MasterpageComponent }, 
-  { path: 'Admin-User', component: AppComponent }, 
+  { path: 'Admin-page', component: DepartmentComponent }, 
 
   { path: 'Add-Employee', component: AddComponent },  
   { path: 'List-Employee', component: ListComponent },
