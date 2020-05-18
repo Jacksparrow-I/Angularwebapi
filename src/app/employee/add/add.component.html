@@ -15,7 +15,9 @@
 <form class="container contact-form border-light p-5"  >
 
     <p class="h4 mb-4">Enter details to Add employee </p>
-
+    <!-- <div style="text-align: center" *ngIf="message == 1">
+        <h1>Employee is Added Successfully</h1>
+    </div> -->
     <!-- Name -->
     <label>Name</label>
     <input type="text" id="name" [(ngModel)]="emp.name" name="name"  class="form-control mb-4" placeholder="Name" >
@@ -47,19 +49,19 @@
 
     <!-- Designation -->
     <label>Designation</label>
-    <input type="number" id="designation" [(ngModel)]="emp.designation" name="designation"  class="form-control mb-4" placeholder="gender" >
-    <!-- <select class="browser-default custom-select mb-4" [(ngModel)]="emp.designation" name="designation">
+    <!-- <input type="number" id="designation" [(ngModel)]="emp.designation" name="designation"  class="form-control mb-4" placeholder="gender" > -->
+    <select class="browser-default custom-select mb-4" [(ngModel)]="emp.designation" name="designation">
         <option value="" disabled>Choose option</option>
         <option *ngFor="let dis of disList"  value="dis.designationId">{{dis.designationName}}</option>
-    </select> -->
+    </select>
 
     <!-- Department -->
     <label>Department</label>
-    <input type="number" id="department" [(ngModel)]="emp.department" name="department"  class="form-control mb-4" placeholder="gender" >
-    <!-- <select class="browser-default custom-select mb-4" id="department" name="department" [(ngModel)]="emp.department" name="department">
+    <!-- <input type="number" id="department" [(ngModel)]="emp.department" name="department"  class="form-control mb-4" placeholder="gender" > -->
+    <select class="browser-default custom-select mb-4" id="department" name="department" [(ngModel)]="emp.department" name="department">
         <option value="" disabled>Choose option</option>
         <option *ngFor="let dep of depList" value="dep.departmentId">{{dep.departmentName}}</option>
-    </select> -->
+    </select>
 
      
     <label>DOB</label>

@@ -14,6 +14,8 @@ export class ListComponent implements OnInit {
   constructor(private http: HttpClient,private employeeService: EmployesService,public router: Router) { }
 
   public empList: any;
+  public depist: any;
+  public desList: any;
   
 
   ngOnInit(): void {
@@ -21,11 +23,11 @@ export class ListComponent implements OnInit {
     this.employeeService.getEmployees()
       .subscribe((data) => this.empList=data);
 
-      // this.employeeService.getDepartment()
-      // .subscribe((data) => this.empList=(data));
+      this.employeeService.getDepartment()
+      .subscribe((data) => this.depist=(data));
 
-      // this.employeeService.getDesignation()
-      // .subscribe((data) => this.empList=(data));
+      this.employeeService.getDesignation()
+      .subscribe((data) => this.desList=(data));
   }
 
 

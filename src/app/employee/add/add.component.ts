@@ -12,8 +12,8 @@ import { Emp, Employee } from '../../emp';
 })
 export class AddComponent implements OnInit {
 
-  public disList: any;
-  public depList: any;
+  disList: any;
+  depList: any;
   emp: Emp = new Emp ("","",0,"",0,0,"",0);
   message:any;   
   // employee: Employee = new Employee ("hello hi");
@@ -22,11 +22,14 @@ export class AddComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.employeeService.getDepartment()
-      .subscribe((data) => this.disList=(data));
+    // this.employeeService.getDepartment()
+    //   .subscribe((data) => this.disList=(data));
 
-      this.employeeService.getDesignation()
-      .subscribe((data) => this.depList=(data));
+    //   this.employeeService.getDesignation()
+    //   .subscribe((data) => this.depList=(data));
+
+    this.disList=this.employeeService.getDesignation().subscribe((data)=>this.disList=data);
+    this.depList=this.employeeService.getDepartment().subscribe((data)=>this.depList=data);
   }
 
   // registerNow() {  
@@ -38,12 +41,17 @@ export class AddComponent implements OnInit {
   //   }
 
 public registerNow(){
-  if(confirm('your record added Sucessfully!'))
-   {
     let resp=this.employeeService.addEmployees(this.emp);
     resp.subscribe((data)=>this.message=(data));
-   }
-  
+    
+    if(this.message == 1)
+    {
+      alert("Employee added Sucessfully");
+    }   
+    else
+    {
+      alert("Enter all required fields");
+    }
    
 }
 
