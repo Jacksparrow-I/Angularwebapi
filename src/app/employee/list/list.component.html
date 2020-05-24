@@ -14,12 +14,19 @@
   
 </p> 
   <body>
+    <div class="card-header">
+      <label >Go to home page</label>
+      <button routerLink = "/Main-Page" class="btn btn-info btn-info" name="submit_reg" value="Register"  type="submit">Home</button>
+            
+    </div>
+
     <!-- <div class="card-header" style="text-align: center;  margin-left:50px; margin-right:50px; margin-bottom:50px; font-weight:bold; font-size:xx-large;">  
       Employee Form
     </div>  -->
     <div class="card" style="margin-left:50px; margin-right:50px; margin-bottom:50px;">  
         <div class="card-header" style="font-weight:bold; font-size:x-large;">  
-        Employee latest details 
+        Employee latest details
+
         </div>        
         <div class="card-body">  
           <div class="table-responsive" style="max-height:385px;">  
@@ -44,8 +51,10 @@
                   <td>{{ list.email }}</td>  
                   <td>{{ list.employeeCode }}</td>  
                   <td>{{ list.gender }}</td> 
-                  <td>{{ list.designationName }}</td>  
-                  <td>{{ list.departmentName }}</td>  
+                  <!-- <td>{{ list.designationName }}</td>  
+                  <td>{{ list.departmentName }}</td>   -->
+                  <td>{{ list.designation }}
+                  <td>{{ list.department }}
                   <td>{{ list.dob }}</td>  
                   <td>{{ list.salary }}</td> 
                   <td>  

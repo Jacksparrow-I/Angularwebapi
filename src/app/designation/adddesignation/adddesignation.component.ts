@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http"; 
 import { EmployesService } from '../../employes.service'; 
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Des, Employee } from '../../emp';
 
 @Component({
@@ -10,6 +11,10 @@ import { Des, Employee } from '../../emp';
   styleUrls: ['./adddesignation.component.css']
 })
 export class AdddesignationComponent implements OnInit {
+
+  form = new FormGroup({
+    designationName: new FormControl('',Validators.required)
+  })
 
   des: Des = new Des ("");
   message:any; 

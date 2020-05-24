@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { EmployesService } from '../../employes.service'; 
 import { Router, ActivatedRoute } from '@angular/router';
 import { Emp, Employee } from '../../emp';
-
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add',
@@ -11,6 +11,16 @@ import { Emp, Employee } from '../../emp';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
+
+  form = new FormGroup({
+    name: new FormControl('',Validators.required),
+    email: new FormControl('',[Validators.required, Validators.email]),
+    employeeCode: new FormControl('',Validators.required),
+    gender: new FormControl('',Validators.required),
+    dob: new FormControl('',Validators.required),
+    salary: new FormControl('',Validators.required)
+  })
+
 
   disList: any;
   depList: any;
@@ -21,26 +31,13 @@ export class AddComponent implements OnInit {
   constructor(public http: HttpClient,private employeeService: EmployesService,public router: Router) { }
 
   ngOnInit(): void {
-
-    // this.employeeService.getDepartment()
-    //   .subscribe((data) => this.disList=(data));
-
-    //   this.employeeService.getDesignation()
-    //   .subscribe((data) => this.depList=(data));
-
+    
     this.disList=this.employeeService.getDesignation().subscribe((data)=>this.disList=data);
     this.depList=this.employeeService.getDepartment().subscribe((data)=>this.depList=data);
   }
 
-  // registerNow() {  
-     
-  //       this.employeeService.addEmployees(this.emp)
-  //           .subscribe((data) => {  
-  //               this.router.navigate(['/listemp']);  
-  //           }, error => this.message = error)  
-  //   }
-
 public registerNow(){
+
     let resp=this.employeeService.addEmployees(this.emp);
     resp.subscribe((data)=>this.message=(data));
     

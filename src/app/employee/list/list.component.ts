@@ -14,7 +14,7 @@ export class ListComponent implements OnInit {
   constructor(private http: HttpClient,private employeeService: EmployesService,public router: Router) { }
 
   public empList: any;
-  public depist: any;
+  public depList: any;
   public desList: any;
   
 
@@ -24,7 +24,7 @@ export class ListComponent implements OnInit {
       .subscribe((data) => this.empList=data);
 
       this.employeeService.getDepartment()
-      .subscribe((data) => this.depist=(data));
+      .subscribe((data) => this.depList=(data));
 
       this.employeeService.getDesignation()
       .subscribe((data) => this.desList=(data));

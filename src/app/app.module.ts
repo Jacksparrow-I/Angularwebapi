@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
 import { EmployesService } from "./employes.service";
 
-import { FormsModule } from '@angular/forms';  
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';  
 import { RouterModule } from '@angular/router'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,7 +41,8 @@ import { MasterpageComponent } from './masterpage/masterpage.component';
   imports: [
     BrowserModule,
     RouterModule,
-    FormsModule,  
+    FormsModule,
+    ReactiveFormsModule,  
     AppRoutingModule,
     HttpClientModule
   ],

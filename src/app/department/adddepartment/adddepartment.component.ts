@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { EmployesService } from '../../employes.service'; 
 import { Router, ActivatedRoute } from '@angular/router';
 import { Dep, Employee } from '../../emp';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-adddepartment',
@@ -10,6 +11,11 @@ import { Dep, Employee } from '../../emp';
   styleUrls: ['./adddepartment.component.css']
 })
 export class AdddepartmentComponent implements OnInit {
+
+form = new FormGroup({
+  departmentName: new FormControl('',Validators.required)
+
+})
 
   dep: Dep = new Dep ("");
   message:any; 
@@ -29,5 +35,5 @@ export class AdddepartmentComponent implements OnInit {
      
   }
   
-  }
+}
   

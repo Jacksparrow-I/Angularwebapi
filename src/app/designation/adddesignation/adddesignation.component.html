@@ -12,14 +12,17 @@
 <div class="card-header" style="text-align: center;  margin-left:50px; margin-right:50px; margin-bottom:50px; font-weight:bold; font-size:xx-large;">  
     Department Form
 </div> 
-<form class="container contact-form border-light p-5"  >
-
+<form class="container contact-form border-light p-5" [formGroup]="form" >
+ 
     <p class="h4 mb-4">Enter details to Add Department </p>
-
+  
     <!-- Name -->
     <label>Department Name</label>
-    <input type="text" id="designationName" [(ngModel)]="des.designationName" name="designationName"  class="form-control mb-4" placeholder="Name" >
-    
+    <input type="text" id="designationName" [(ngModel)]="des.designationName" name="designationName"  class="form-control mb-4" placeholder="Name" formControlName="designationName" [ngClass]="{'is-invalid':
+    form.get('designationName').touched && form.get('designationName').invalid}">
+    <div class="invalid-feedback">
+        <div>Input is required </div>
+    </div>
 
     <!-- <div style="text-align: center "*ngIf="message == 1"></div>
     <h1>Department is Added Successfully</h1>
@@ -31,7 +34,7 @@
     </div> -->
     
     <!-- Send button -->
-    <button routerLink = "/List-Designation" class="btn btn-info btn-block" name="submit_reg" value="Register" (click)="registerNow()" type="submit">Send</button>
+    <button routerLink = "/List-Designation" class="btn btn-info btn-block" name="submit_reg" value="Register" (click)="registerNow()" type="submit">Submit</button>
     <button routerLink = "/List-Designation" class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit">Go to List</button>
     <router-outlet></router-outlet>
 </form>

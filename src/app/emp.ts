@@ -54,15 +54,5 @@ export class Desigantion{
     constructor(
         public designationId:number,
         public designationName:string,
-    ){}s
+    ){}
 }
-
-// {"id":11002,
-// "name":"DoctorStrange",
-// "email":"Doctorstrange@universe.com",
-// "employeeCode":5555,
-// "gender":"male",
-// "department":2,
-// "designation":2,
-// "dob":"1",
-// "salary":990000}]
