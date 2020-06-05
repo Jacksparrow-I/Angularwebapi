@@ -27,6 +27,18 @@ export class Employee{
     ){}
 }
 
+export class EmpId{
+        id:number;
+        name:string;
+        email:string;
+        employeeCode:number;
+        gender:string;
+        designation:number;
+        department:number;
+        dob:string;
+        salary:number;
+}
+
 export class Dep{
 
     constructor(
@@ -42,6 +54,11 @@ export class Department{
     ){}
 }
 
+export class DepId{
+        departmentId:number;
+        departmentName:string;
+}
+
 export class Des{
 
     constructor(
@@ -55,4 +72,9 @@ export class Desigantion{
         public designationId:number,
         public designationName:string,
     ){}
+}
+
+export class DesId{
+        designationId:number;
+        designationName:string;
 }

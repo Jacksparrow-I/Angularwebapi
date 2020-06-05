@@ -13,12 +13,16 @@ export class ListdepartmentComponent implements OnInit {
   constructor(private http: HttpClient,private employeeService: EmployesService,public router: Router) { }
 
   public empList: any;
+  term: string;
 
   ngOnInit(): void {
 
     this.employeeService.getDepartment()
       .subscribe((data) => this.empList=data);
+  }
 
+  GetById(departmentId: number){
+    this.router.navigate(['Update-Department',departmentId]);
   }
 
   deletedata(departmentId:number){

@@ -25,8 +25,8 @@
     </div>  -->
     <div class="card" style="margin-left:50px; margin-right:50px; margin-bottom:50px;">  
         <div class="card-header" style="font-weight:bold; font-size:x-large;">  
-        Employee latest details
-
+          Employee latest details
+          <input type="text"  class="form-control" placeholder="Search Here" [(ngModel)]="term">
         </div>        
         <div class="card-body">  
           <div class="table-responsive" style="max-height:385px;">  
@@ -45,7 +45,7 @@
                 </tr>  
             </thead>   
               <tbody>  
-                <tr *ngFor="let list of empList"> 
+                <tr *ngFor="let list of empList | filter:term"> 
                   <td>{{ list.id }}</td>  
                   <td>{{ list.name }}</td>  
                   <td>{{ list.email }}</td>  
@@ -58,7 +58,7 @@
                   <td>  
                   </td>  
                   <td><button class="btn btn-danger btn-block" name="submit_reg" value="delete" (click)="deletedata(list.id)" type="submit">Delete</button></td>
-                  <td><button routerLink = "/Update-Employee" type="button" class="btn btn-info btn-block">Update</button></td> 
+                  <td><button routerLink = "/Update-Employee" (click)="GetById(list.id)" type="button" class="btn btn-info btn-block">Update</button></td> 
 
                 </tr>  
               </tbody>  

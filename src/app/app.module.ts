@@ -20,6 +20,8 @@ import { AdddesignationComponent } from './designation/adddesignation/adddesigna
 import { ListdesignationComponent } from './designation/listdesignation/listdesignation.component';
 import { UpdatedesignationComponent } from './designation/updatedesignation/updatedesignation.component';
 import { MasterpageComponent } from './masterpage/masterpage.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { MasterpageComponent } from './masterpage/masterpage.component';
     FormsModule,
     ReactiveFormsModule,  
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule
   ],
   providers: [EmployesService],
   bootstrap: [AppComponent]

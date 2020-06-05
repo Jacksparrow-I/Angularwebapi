@@ -4,6 +4,7 @@ import { EmployesService } from '../../employes.service';
 import { NgForm, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';  
 import { Router, ActivatedRoute } from '@angular/router';
 import { Desigantion } from '../../emp';
+import { DesId } from '../../emp';
 
 @Component({
   selector: 'app-updatedesignation',
@@ -26,23 +27,23 @@ export class UpdatedesignationComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.desobj = new DesId();
     this.designationId = this.route.snapshot.params['designationId'];
 
-    // this.employeeService.DesGetById(this.designationId)
-    //   .subscribe(data => {
-    //     console.log(data)
-    //     this.message = data;
-    //   }, error => console.log(error));
-
-    this.desobj = this.employeeService.DesGetById(this.designationId)
-    .subscribe((data) => this.desobj=data);
+    this.employeeService.DesGetById(this.designationId)
+      .subscribe(data => {
+        console.log(data)
+        this.Des = data;
+      }, error => console.log(error));
   }
 
   public Updatedata(){
     if(confirm('Your data updated successfully !'))
    {
-    let resp=this.employeeService.updateDesignation(this.Des);
+    let resp=this.employeeService.updateDesignation(this.Des,this.designationId);
     resp.subscribe((data)=>this.message=data);
+
+    this.Des = new DesId();
    }
   }
 }

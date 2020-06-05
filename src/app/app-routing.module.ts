@@ -24,15 +24,15 @@ const routes: Routes = [
 
   { path: 'Add-Employee', component: AddComponent },  
   { path: 'List-Employee', component: ListComponent },
-  { path: 'Update-Employee', component: UpdateComponent },
+  { path: 'Update-Employee/:id', component: UpdateComponent },
 
   { path: 'Add-Department', component: AdddepartmentComponent },  
   { path: 'List-Department', component: ListdepartmentComponent },
-  { path: 'Update-Department', component: UpdatedepartmentComponent },
+  { path: 'Update-Department/:departmentId', component: UpdatedepartmentComponent },
 
   { path: 'Add-Designation', component: AdddesignationComponent },  
   { path: 'List-Designation', component: ListdesignationComponent },
-  { path: 'Update-Designation', component: UpdatedesignationComponent },
+  { path: 'Update-Designation/:designationId', component: UpdatedesignationComponent },
   { path: '**', redirectTo: 'home' }
 ];
 

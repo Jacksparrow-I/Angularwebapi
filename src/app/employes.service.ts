@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http"; 
-import { environment } from 'src/environments/environment'
+import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 import {Emp} from './emp';
 import {Employee} from './emp';
 import {Dep} from './emp';
@@ -29,15 +30,15 @@ export class EmployesService {
   return this.http.post(environment.apiBaseURI + "/api/Employee/AddDepartment",emp,{responseType:'text' as 'json'}) ;
 }  
 
-updateDepartment(emp:Department) {   
-  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateDepartment",emp,{responseType:'text' as 'json'})  ;
+updateDepartment(emp:Department,departmentId) {   
+  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateDepartment/" + departmentId,emp,{responseType:'text' as 'json'})  ;
 }  
 
 deleteDepartment(departmentId) {   
   return this.http.delete(environment.apiBaseURI + "/api/Employee/DeleteDepartment/"+departmentId);
 }
 
-DepGetById(departmentId) {   
+DepGetById(departmentId): Observable<any> {   
   return this.http.get(environment.apiBaseURI + "/api/Employee/DepartmentById/"+departmentId);
 }
 
@@ -53,16 +54,16 @@ DepGetById(departmentId) {
   return this.http.post(environment.apiBaseURI + "/api/Employee/AddDesignation",emp,{responseType:'text' as 'json'}) ;
 }  
 
-updateDesignation(emp:Desigantion) {   
-  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateDesignation",emp,{responseType:'text' as 'json'})  ;
+updateDesignation(emp:Desigantion,designationId:number) {   
+  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateDesignation/" + designationId,emp,{responseType:'text' as 'json'})  ;
 }  
 
 deleteDesignation(designationId) {   
-  return this.http.delete(environment.apiBaseURI + "/api/Employee/DeleteDesignation/"+designationId);
+  return this.http.delete(environment.apiBaseURI + "/api/Employee/DeleteDesignation/" + designationId);
 }
 
-DesGetById(designationId) {   
-  return this.http.get(environment.apiBaseURI + "/api/Employee/DesignationById/"+designationId);
+DesGetById(designationId): Observable<any> {   
+  return this.http.get(environment.apiBaseURI + "/api/Employee/DesignationById/" + designationId);
 }
 
 //********************************************* Employee ***************************************************//
@@ -76,15 +77,15 @@ getEmployees() {
   return this.http.post(environment.apiBaseURI + "/api/Employee/SaveItem",emp,{responseType:'text' as 'json'}) ;
 }  
 
-updateEmployees(emp:Employee) {   
-  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateItem",emp,{responseType:'text' as 'json'})  ;
+updateEmployees(emp:Employee,id) {   
+  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateItem/" + id,emp,{responseType:'text' as 'json'})  ;
 }  
 
 deleteEmployees(id) {   
   return this.http.delete(environment.apiBaseURI + "/api/Employee/DeleteItem/"+id);
 }
 
-EmpGetById(id) {   
+EmpGetById(id): Observable<any> {   
   return this.http.get(environment.apiBaseURI + "/api/Employee/EmployeeById/"+id);
 }
  

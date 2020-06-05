@@ -16,6 +16,7 @@ export class ListComponent implements OnInit {
   public empList: any;
   public depList: any;
   public desList: any;
+  term: string;
   
 
   ngOnInit(): void {
@@ -30,7 +31,9 @@ export class ListComponent implements OnInit {
       .subscribe((data) => this.desList=(data));
   }
 
-
+  GetById(id: number){
+    this.router.navigate(['Update-Employee',id]);
+  }
 
  deletedata(id:number){
    if(confirm('Are you sure you want to delete this record !'))

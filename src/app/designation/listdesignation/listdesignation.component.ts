@@ -13,23 +13,17 @@ export class ListdesignationComponent implements OnInit {
   constructor(private http: HttpClient,private employeeService: EmployesService,public route: ActivatedRoute,public router: Router) { }
 
   public empList: any;
-
+  term: string;
 
   ngOnInit(): void {
 
     this.employeeService.getDesignation()
       .subscribe((data) => this.empList=data);
       
-
-    // this.route.paramMap.subscribe(paramMap=>{
-    //   const designationId = +paramMap.get('designationId');
-    //   this.GetById(designationId);
-    // })
   }
 
   GetById(designationId: number){
     this.router.navigate(['Update-Designation',designationId]);
-    // this.empList = this.employeeService.GetById(designationId);
 
   }
 
@@ -40,4 +34,6 @@ export class ListdesignationComponent implements OnInit {
      resp.subscribe((data)=>this.empList=data);
     }
   }
+
+
 }

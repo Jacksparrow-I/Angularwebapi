@@ -4,6 +4,7 @@ import { EmployesService } from '../../employes.service';
 import { NgForm, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';  
 import { Router, ActivatedRoute } from '@angular/router';
 import { Department } from '../../emp';
+import { DepId } from '../../emp';
 
 @Component({
   selector: 'app-updatedepartment',
@@ -26,13 +27,24 @@ export class UpdatedepartmentComponent implements OnInit {
   constructor(private http: HttpClient,private employeeService: EmployesService,public route: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
+
+    this.depobj = new DepId();
+    this.departmentId = this.route.snapshot.params['departmentId'];
+
+    this.employeeService.DepGetById(this.departmentId)
+    .subscribe(data => {
+      console.log(data)
+      this.Dep = data;
+    }, error => console.log(error));
   }
 
   public Updatedata(){
     if(confirm('Your data updated successfully !'))
    {
-    let resp=this.employeeService.updateDepartment(this.Dep);
+    let resp=this.employeeService.updateDepartment(this.Dep,this.departmentId);
     resp.subscribe((data)=>this.message=data);
+
+    this.Dep = new DepId();
    }
   }
 }
