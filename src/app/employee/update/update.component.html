@@ -7,86 +7,137 @@
 </head>  
 
 <body>  
-    <!-- <h1>Update Employee</h1>   -->
+    <div class="card-header"  style=" background-color: cadetblue;  margin-bottom:50px; font-weight:bold; font-size:xx-large;">  
+        Stridely Solutions
+        |
+        <button routerLink = "/Main-Page" class="btn btn-info btn-info" style="background-color:deepskyblue;" name="submit_reg" value="Register"  type="submit">
+          Home
+        </button>
+        <span> | </span>
+        <button routerLink = "/Add-Employee" class="btn btn-info btn-info" style="background-color:deepskyblue;" name="submit_reg" value="Register"  type="submit">
+            Add Employee
+          </button>
+    </div> 
 
-<!-- Default form contact -->
-<div class="card-header" style="text-align: center;  margin-left:50px; margin-right:50px; margin-bottom:50px; font-weight:bold; font-size:xx-large;">  
-    Employee Form
-</div> 
-<label>Go to home page</label>
-<button routerLink = "/Main-Page" class="btn btn-info btn-info" name="submit_reg" value="Register"  type="submit">Home</button>
-
-<form class="container contact-form border-light p-5"  >
+<form class="container contact-form border-light p-5" [formGroup]="form" >
 
 
     <p class="h4 mb-4">Enter details to update employee </p>
 
     <label>Employee ID</label>
     <div class="form-group">
-        <input type="number" [(ngModel)]="emp.id"  name="id" id="id"  class="form-control my-input" placeholder="EmployeeCode">
-     </div>
+        <input type="number" [(ngModel)]="emp.id"  name="id" id="id"  class="form-control my-input" placeholder="EmployeeCode"formControlName="id" [ngClass]="{'is-invalid':
+        form.get('id').touched && form.get('id').invalid}">
+        <div class="invalid-feedback">
+            <div>Input is required </div>
+        </div>
+    </div>
 
     <!-- Name -->
     <label>Name</label>
-    <input type="text" id="name" [(ngModel)]="emp.name" name="name"  class="form-control mb-4" placeholder="Name" >
+    <input type="text" id="name" [(ngModel)]="emp.name" name="name"  class="form-control mb-4" placeholder="Name" formControlName="name" [ngClass]="{'is-invalid':
+    form.get('name').touched && form.get('name').invalid}">
+    <div class="invalid-feedback">
+        <div>Input is required </div>
+    </div>
 
     <!-- Email -->
     <label>Email</label>
-    <input type="email" id="email" [(ngModel)]="emp.email" name="email" class="form-control mb-4" placeholder="E-mail" >
+    <input type="email" id="email" [(ngModel)]="emp.email" name="email" class="form-control mb-4" placeholder="E-mail" formControlName="email" [ngClass]="{'is-invalid':
+    form.get('email').touched && form.get('email').invalid}">
+    <div *ngIf="form.get('email').touched && form.get('email').invalid" class="invalid-feedback">
+        <div *ngIf="form.get('email').errors.required">Input is required </div>
+        <div *ngIf="form.get('email').errors.email">Email must be valid email address </div>
+    </div>
 
     <label>Employee Code</label>
     <div class="form-group">
-        <input type="number" [(ngModel)]="emp.employeeCode"  name="EmployeeCode" id="employeeCode"  class="form-control my-input" placeholder="EmployeeCode">
-     </div>
-
+        <input type="number" [(ngModel)]="emp.employeeCode"  name="employeeCode" id="employeeCode"  class="form-control my-input" placeholder="EmployeeCode" formControlName="employeeCode" [ngClass]="{'is-invalid':
+        form.get('employeeCode').touched && form.get('employeeCode').invalid}">
+        <div class="invalid-feedback">
+            <div>Input is required </div>
+        </div>
+        </div>
      
-        <label>Gender</label>
-     <div>
-        <input type="text" id="gender" [(ngModel)]="emp.gender" name="gender"  class="form-control mb-4" placeholder="gender" >
-     </div>
+    <!-- <label>Gender</label>
+    <div class="form-group">
+        <input type="text" [(ngModel)]="emp.gender"  name="gender" id="gender"  class="form-control mb-4" placeholder="gender" formControlName="gender" [ngClass]="{'is-invalid':
+        form.get('gender').touched && form.get('gender').invalid}">
+        <div class="invalid-feedback">
+            <div>Input is required </div>
+        </div>
+     </div> -->
 
-     <!-- <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="gender"  class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline1">Male</label>
+    <div class="form-group">
+        <label>Gender</label>
+          <div class="form-group">
+              <input type="radio" [(ngModel)]="emp.gender" name="gender" value="Male" formControlName="gender" [ngClass]="{'is-invalid':
+              form.get('gender').touched && form.get('gender').invalid}">
+              <div class="invalid-feedback">
+                  <div>Input is required </div>
+              </div>
+              Male &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="radio" [(ngModel)]="emp.gender" name="gender" value="Female" formControlName="gender" [ngClass]="{'is-invalid':
+              form.get('gender').touched && form.get('gender').invalid}">
+              <div class="invalid-feedback">
+                  <div>Input is required </div>
+              </div>
+              Female &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+          </div>
       </div>
-      <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="gender"  class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline2">Female</label>
-      </div>
-    </div> -->
+
+     <!-- <div class="form-group">
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" [(ngModel)]="emp.gender" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline1">Male</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" [(ngModel)]="emp.gender" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline2">Female</label>
+          </div>
+        </div> -->
 
     <!-- Designation -->
+    <!-- <input type="number" id="designation" [(ngModel)]="emp.designation"  name="designation"  class="form-control mb-4" placeholder="gender" formControlName="designation" [ngClass]="{'is-invalid':
+    form.get('designation').touched && form.get('dob').invalid}">
+    <div class="invalid-feedback">
+        <div>Input is required </div>
+    </div> -->
     <label>Designation</label>
-    <input type="number" id="designation" [(ngModel)]="emp.designation" name="designation"  class="form-control mb-4" placeholder="gender" >
-    <!-- <select class="browser-default custom-select mb-4" [(ngModel)]="emp.designation" name="designation">
-        <option value="" disabled>Choose option</option>
-        <option value="1" selected>1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select> -->
+    <select class="browser-default custom-select mb-4" name="designation" [(ngModel)]="emp.designation" formControlName="designation" [ngClass]="{'is-invalid':
+    form.get('designation').touched && form.get('designation').invalid}">
+        <option *ngFor="let dis of disList"  [ngValue]="dis.designationId">{{dis.designationName}}</option>
+    </select>
 
     <!-- Department -->
+    <!-- <input type="number" id="department" [(ngModel)]="emp.department" name="department"  class="form-control mb-4" placeholder="gender" formControlName="department" [ngClass]="{'is-invalid':
+    form.get('department').touched && form.get('dob').invalid}">
+    <div class="invalid-feedback">
+        <div>Input is required </div>
+    </div> -->
     <label>Department</label>
-    <input type="number" id="department" [(ngModel)]="emp.department" name="department"  class="form-control mb-4" placeholder="gender" >
-    <!-- <select class="browser-default custom-select mb-4" [(ngModel)]="emp.department" name="department">
-        <option value="" disabled>Choose option</option>
-        <option value="1" selected>1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select> -->
+    <select class="browser-default custom-select mb-4" [(ngModel)]="emp.department" name="department" formControlName="department" [ngClass]="{'is-invalid':
+    form.get('department').touched && form.get('department').invalid}">
+        <option *ngFor="let dep of depList" [ngValue]="dep.departmentId">{{dep.departmentName}}</option>
+    </select>
 
-     
     <label>DOB</label>
     <div class="form-group">
-        <input type="date" id="dob" [(ngModel)]="emp.dob" name="dob"  class="form-control my-input">
+        <input type="date" id="dob" [(ngModel)]="emp.dob" name="dob"  class="form-control my-input" formControlName="dob" [ngClass]="{'is-invalid':
+        form.get('dob').touched && form.get('dob').invalid}">
+        <div class="invalid-feedback">
+            <div>Input is required </div>
+        </div>
     </div>
 
     <label>Salary</label>
     <div class="form-group">
-        <input type="number" name="salary" [(ngModel)]="emp.salary"  id="salary"  class="form-control my-input" placeholder="Salary">
-     </div>
+        <input type="number" name="salary" [(ngModel)]="emp.salary"  id="salary"  class="form-control my-input" placeholder="Salary" formControlName="salary" [ngClass]="{'is-invalid':
+        form.get('salary').touched && form.get('salary').invalid}">
+        <div class="invalid-feedback">
+            <div>Input is required </div>
+        </div>
+    </div>
      
     <!--<div class="custom-control custom-checkbox mb-4">
         <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
@@ -95,7 +146,7 @@
     
 
     <!-- Send button -->
-    <button routerLink = "/List-Employee" class="btn btn-info btn-block" name="submit_reg" value="Register" (click)="Updatedata()" type="submit">Update</button>
+    <button routerLink = "/List-Employee" class="btn btn-info btn-block" name="submit_reg" value="Register" [disabled]="!form.valid" (click)="Updatedata()" type="submit">Update</button>
     <button routerLink = "/List-Employee" class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit">Go to List</button>
     <router-outlet></router-outlet>
 </form>

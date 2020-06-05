@@ -21,20 +21,24 @@ export class EmployesService {
 
 
  getDepartment() {   
-    return this.http.get(environment.apiBaseURI + "/api/Employee/GetDepartment")  ;
+    return this.http.get(environment.apiBaseURI + "/api/Employee/GetDepartment");
  } 
 
  addDepartment(emp:Dep) {   
   
-  return this.http.post(environment.apiBaseURI + "/api/Employee/AddDepartment",emp) ;
+  return this.http.post(environment.apiBaseURI + "/api/Employee/AddDepartment",emp,{responseType:'text' as 'json'}) ;
 }  
 
 updateDepartment(emp:Department) {   
-  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateDepartment",emp)  ;
+  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateDepartment",emp,{responseType:'text' as 'json'})  ;
 }  
 
 deleteDepartment(departmentId) {   
-  return this.http.delete(environment.apiBaseURI + "/api/Employee/DeleteDepartment/"+departmentId)  ;
+  return this.http.delete(environment.apiBaseURI + "/api/Employee/DeleteDepartment/"+departmentId);
+}
+
+DepGetById(departmentId) {   
+  return this.http.get(environment.apiBaseURI + "/api/Employee/DepartmentById/"+departmentId);
 }
 
 //********************************************* Designation ***************************************************//
@@ -46,15 +50,19 @@ deleteDepartment(departmentId) {
 
  addDesignation(emp:Des) {   
   
-  return this.http.post(environment.apiBaseURI + "/api/Employee/AddDesignation",emp) ;
+  return this.http.post(environment.apiBaseURI + "/api/Employee/AddDesignation",emp,{responseType:'text' as 'json'}) ;
 }  
 
 updateDesignation(emp:Desigantion) {   
-  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateDesignation",emp)  ;
+  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateDesignation",emp,{responseType:'text' as 'json'})  ;
 }  
 
 deleteDesignation(designationId) {   
-  return this.http.delete(environment.apiBaseURI + "/api/Employee/DeleteDesignation/"+designationId)  ;
+  return this.http.delete(environment.apiBaseURI + "/api/Employee/DeleteDesignation/"+designationId);
+}
+
+DesGetById(designationId) {   
+  return this.http.get(environment.apiBaseURI + "/api/Employee/DesignationById/"+designationId);
 }
 
 //********************************************* Employee ***************************************************//
@@ -65,16 +73,19 @@ getEmployees() {
 
  addEmployees(emp:Emp) {   
   
-  return this.http.post(environment.apiBaseURI + "/api/Employee/SaveItem",emp) ;
+  return this.http.post(environment.apiBaseURI + "/api/Employee/SaveItem",emp,{responseType:'text' as 'json'}) ;
 }  
 
 updateEmployees(emp:Employee) {   
-  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateItem",emp)  ;
+  return this.http.post(environment.apiBaseURI + "/api/Employee/UpdateItem",emp,{responseType:'text' as 'json'})  ;
 }  
 
 deleteEmployees(id) {   
-  return this.http.delete(environment.apiBaseURI + "/api/Employee/DeleteItem/"+id)  ;
+  return this.http.delete(environment.apiBaseURI + "/api/Employee/DeleteItem/"+id);
 }
 
+EmpGetById(id) {   
+  return this.http.get(environment.apiBaseURI + "/api/Employee/EmployeeById/"+id);
+}
  
 }

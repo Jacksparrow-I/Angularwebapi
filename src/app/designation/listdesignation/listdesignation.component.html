@@ -10,16 +10,21 @@
 
     <!-- <title>Hello, world!</title> -->
   </head>
-<p>  
-  
-</p> 
+
+  <div class="card-header"  style=" background-color: cadetblue;  margin-bottom:50px; font-weight:bold; font-size:xx-large;">  
+    Stridely Solutions
+    <button routerLink = "/Main-Page" class="btn btn-info btn-info" style="background-color:deepskyblue;" name="submit_reg" value="Register"  type="submit">
+      Home
+    </button>
+</div> 
+
   <body>
     <!-- <div class="card-header" style="text-align: center;  margin-left:50px; margin-right:50px; margin-bottom:50px; font-weight:bold; font-size:xx-large;">  
       Employee Form
     </div>  -->
     <div class="card" style="margin-left:50px; margin-right:50px; margin-bottom:50px;">  
         <div class="card-header" style="font-weight:bold; font-size:x-large;">  
-        Department latest details 
+          Designation latest details 
         </div>        
         <div class="card-body">  
           <div class="table-responsive" style="max-height:385px;">  
@@ -30,14 +35,14 @@
                     <th>Designation Name</th>   
                 </tr>  
             </thead>   
-              <tbody>  
+              <tbody>
                 <tr *ngFor="let list of empList"> 
                   <td>{{ list.designationId }}</td>  
                   <td>{{ list.designationName }}</td>
                   <td>  
                   </td>  
                   <td><button class="btn btn-danger btn-block" name="submit_reg" value="delete" (click)="deletedata(list.designationId)" type="submit">Delete</button></td>
-                  <td><button routerLink = "/Update-Designation" type="button" class="btn btn-info btn-block">Update</button></td> 
+                  <td><button routerLink = "/Update-Designation" type="button" (click)="GetById(list.designationId)" class="btn btn-info btn-block">Update</button></td> 
 
                 </tr>  
               </tbody>  

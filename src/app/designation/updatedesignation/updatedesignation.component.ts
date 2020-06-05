@@ -12,13 +12,30 @@ import { Desigantion } from '../../emp';
 })
 export class UpdatedesignationComponent implements OnInit {
 
+  form = new FormGroup({
+    designationId: new FormControl('',Validators.required),
+    designationName: new FormControl('',Validators.required)
+  })
+
   Des: Desigantion = new Desigantion (0,"");
   message:any; 
+  designationId:number;
+  public desobj : any;
 
-
-  constructor(private http: HttpClient,private employeeService: EmployesService,private router: Router) { }
+  constructor(private http: HttpClient,private employeeService: EmployesService,public route: ActivatedRoute,public router: Router) { }
 
   ngOnInit(): void {
+
+    this.designationId = this.route.snapshot.params['designationId'];
+
+    // this.employeeService.DesGetById(this.designationId)
+    //   .subscribe(data => {
+    //     console.log(data)
+    //     this.message = data;
+    //   }, error => console.log(error));
+
+    this.desobj = this.employeeService.DesGetById(this.designationId)
+    .subscribe((data) => this.desobj=data);
   }
 
   public Updatedata(){

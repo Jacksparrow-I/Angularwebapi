@@ -12,11 +12,18 @@ import { Department } from '../../emp';
 })
 export class UpdatedepartmentComponent implements OnInit {
 
+  form = new FormGroup({
+    departmentId: new FormControl('',Validators.required),
+    departmentName: new FormControl('',Validators.required)
+  })
+
   Dep: Department = new Department (0,"");
   message:any; 
+  departmentId:number;
+  public depobj : any;
 
 
-  constructor(private http: HttpClient,private employeeService: EmployesService,private router: Router) { }
+  constructor(private http: HttpClient,private employeeService: EmployesService,public route: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
   }
