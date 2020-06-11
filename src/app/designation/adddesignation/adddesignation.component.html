@@ -1,25 +1,11 @@
-<!DOCTYPE html>  
-<html>  
-<head>  
-    <meta charset="utf-8" />  
-    
-</head>  
-
-<body>  
-    <!-- <h1>Add Employee</h1>   -->
-
-<!-- Default form contact -->
-<div class="card-header"  style=" background-color: cadetblue;  margin-bottom:50px; font-weight:bold; font-size:xx-large;">  
+<!-- <div class="card-header"  style=" background-color: cadetblue;  margin-bottom:50px; font-weight:bold; font-size:xx-large;">  
     Stridely Solutions
     |
     <button routerLink = "/Main-Page" class="btn btn-info btn-info" style="background-color:deepskyblue;" name="submit_reg" value="Register"  type="submit">
       Home
     </button>
-    <span> | </span>
-    <button routerLink = "/Update-Designation" class="btn btn-info btn-info" style="background-color:deepskyblue;" name="submit_reg" value="Register"  type="submit">
-        Update Designation
-      </button>
-</div> 
+</div>  -->
+
 <form class="container contact-form border-light p-5" [formGroup]="form" >
  
     <p class="h4 mb-4">Enter details to Add Department </p>
@@ -42,10 +28,7 @@
     </div> -->
     
     <!-- Send button -->
-    <button routerLink = "/List-Designation" class="btn btn-info btn-block" name="submit_reg" value="Register" [disabled]="!form.valid" (click)="registerNow()" type="submit">Submit</button>
+    <button class="btn btn-info btn-block" name="submit_reg" value="Register" [disabled]="!form.valid" (click)="registerNow()" type="submit">Submit</button>
     <button routerLink = "/List-Designation" class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit">Go to List</button>
-    <router-outlet></router-outlet>
-</form>
 
-</body>  
-</html>
+</form>

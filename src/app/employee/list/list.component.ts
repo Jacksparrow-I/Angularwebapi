@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http"; 
 import { EmployesService } from '../../employes.service'; 
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -11,17 +12,26 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ListComponent implements OnInit {
 
-  constructor(private http: HttpClient,private employeeService: EmployesService,public router: Router) { }
+  constructor(private http: HttpClient,private employeeService: EmployesService,public router: Router,private toastr: ToastrService) { 
+
+    this.reloadData();
+  }
 
   public empList: any;
   public depList: any;
   public desList: any;
+  reid: any;
   term: string;
   
 
   ngOnInit(): void {
 
-    this.employeeService.getEmployees()
+    this.reloadData();
+  }
+
+  reloadData() {
+
+      this.employeeService.getEmployees()
       .subscribe((data) => this.empList=data);
 
       this.employeeService.getDepartment()
@@ -39,7 +49,7 @@ export class ListComponent implements OnInit {
    if(confirm('Are you sure you want to delete this record !'))
    {
     let resp= this.employeeService.deleteEmployees(id);
-    resp.subscribe((data)=>this.empList=data);
+    resp.subscribe((data)=> {this.reid=data; this.reloadData()});
    }
   
  }

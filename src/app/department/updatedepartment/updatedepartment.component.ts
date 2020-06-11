@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { EmployesService } from '../../employes.service'; 
 import { NgForm, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';  
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Department } from '../../emp';
 import { DepId } from '../../emp';
 
@@ -24,7 +25,7 @@ export class UpdatedepartmentComponent implements OnInit {
   public depobj : any;
 
 
-  constructor(private http: HttpClient,private employeeService: EmployesService,public route: ActivatedRoute,private router: Router) { }
+  constructor(private http: HttpClient,private employeeService: EmployesService,public route: ActivatedRoute,private router: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
@@ -39,12 +40,31 @@ export class UpdatedepartmentComponent implements OnInit {
   }
 
   public Updatedata(){
-    if(confirm('Your data updated successfully !'))
    {
     let resp=this.employeeService.updateDepartment(this.Dep,this.departmentId);
-    resp.subscribe((data)=>this.message=data);
+    resp.subscribe((data)=>{
+      this.message=(data)
+      if( data == 1)
+      {
+        this.gotoList()
+        this.toastr.success("your record Update Sucessfully!");
+      }
+      else if( data == -1)
+      {
+        this.toastr.warning("Oops ! Data is already exist");
+      }
+      else
+      {
+        alert("Error !!!");
+      }
+    });
 
-    this.Dep = new DepId();
+    //this.Des = new DesId();
    }
+  }
+  
+  gotoList() {
+    this.router.navigateByUrl('/List-Department', { skipLocationChange: true });
+    this.router.navigate(["/List-Department"]);
   }
 }

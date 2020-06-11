@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { EmployesService } from '../../employes.service'; 
 import { NgForm, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';  
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Desigantion } from '../../emp';
 import { DesId } from '../../emp';
 
@@ -23,7 +24,7 @@ export class UpdatedesignationComponent implements OnInit {
   designationId:number;
   public desobj : any;
 
-  constructor(private http: HttpClient,private employeeService: EmployesService,public route: ActivatedRoute,public router: Router) { }
+  constructor(private http: HttpClient,private employeeService: EmployesService,public route: ActivatedRoute,public router: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
@@ -38,12 +39,31 @@ export class UpdatedesignationComponent implements OnInit {
   }
 
   public Updatedata(){
-    if(confirm('Your data updated successfully !'))
    {
     let resp=this.employeeService.updateDesignation(this.Des,this.designationId);
-    resp.subscribe((data)=>this.message=data);
+    resp.subscribe((data)=>{
+      this.message=(data)
+      if( data == 1)
+      {
+        this.gotoList()
+        this.toastr.success("your record Update Sucessfully!");
+      }
+      else if( data == -1)
+      {
+        this.toastr.warning("Oops ! Data is already exist");
+      }
+      else
+      {
+        this.toastr.warning("Error !!!");
+      }
+    });
 
-    this.Des = new DesId();
+    //this.Des = new DesId();
    }
+  }
+  
+  gotoList() {
+    this.router.navigateByUrl('/List-Designation', { skipLocationChange: true });
+    this.router.navigate(["/List-Designation"]);
   }
 }

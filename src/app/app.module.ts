@@ -20,7 +20,10 @@ import { AdddesignationComponent } from './designation/adddesignation/adddesigna
 import { ListdesignationComponent } from './designation/listdesignation/listdesignation.component';
 import { UpdatedesignationComponent } from './designation/updatedesignation/updatedesignation.component';
 import { MasterpageComponent } from './masterpage/masterpage.component';
+
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -47,7 +50,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ReactiveFormsModule,  
     AppRoutingModule,
     HttpClientModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [EmployesService],
   bootstrap: [AppComponent]
