@@ -1,0 +1,39 @@
+<form #form='ngForm' class="container contact-form border-light p-5" (submit)="onSubmit(form)">
+    <p class="h4 mb-4">Enter details to Login </p>
+    <!-- <div style="text-align: center" *ngIf="message == 1">
+        <h1>Employee is Added Successfully</h1>
+    </div> -->
+    <!-- Name -->
+    <!-- <label>First Name</label>
+    <input type="First Name" id="First Name"  name="First Name"  class="form-control mb-4" placeholder="First Name" > -->
+    <!-- <div class="invalid-feedback">
+        <div>Input is required </div>
+    </div> -->
+
+    <!-- Email -->
+    <!-- <label>Last Name</label>
+    <input type="Last Name" id="Last Name" name="Last Name" class="form-control mb-4" placeholder="Last Name" > -->
+    <!-- <div *ngIf="form.get('email').touched && form.get('email').invalid" class="invalid-feedback">
+        <div *ngIf="form.get('email').errors.required">Input is required </div>
+        <div *ngIf="form.get('email').errors.email">Email must be valid email address </div>
+    </div> -->
+
+    <label>User Name</label>
+    <input type="email" id="userName " [(ngModel)]="formModel.userName" name="userName"  class="form-control mb-4" placeholder="User Name" >
+    <!-- <div class="invalid-feedback">
+        <div>Input is required </div>
+    </div> -->
+
+    <!-- Email -->
+    <label>Password</label>
+    <input type="password" id="password" [(ngModel)]="formModel.password" name="password" class="form-control mb-4" placeholder="password" >
+    <!-- <div *ngIf="form.get('email').touched && form.get('email').invalid" class="invalid-feedback">
+        <div *ngIf="form.get('email').errors.required">Input is required </div>
+        <div *ngIf="form.get('email').errors.email">Email must be valid email address </div>
+    </div> -->
+
+    <div class="text-center">
+        <button class="btn btn-info btn-min-width" style=" margin-top: 10px; margin-right: 5px; text-align: center;" name="submit_reg" value="Register"  type="submit">Login </button>
+    </div>
+    <router-outlet></router-outlet>
+</form>

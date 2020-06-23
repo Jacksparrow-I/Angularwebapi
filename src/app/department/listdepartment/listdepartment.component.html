@@ -8,7 +8,7 @@
 
     <div class="card" style="margin-left:50px; margin-right:50px; margin-bottom:50px; margin-top:50px;">  
         <div class="card-header" style="font-weight:bold; font-size:x-large;">  
-          Department latest details
+          Department details
           <input type="text" class="form-control"  placeholder="Search Here" [(ngModel)]="term" >
         </div>    
     
@@ -33,7 +33,9 @@
               </tbody>  
             </table> 
           </div>  
-          <button routerLink = "/Add-Department" class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit">Add Department</button>
-      <router-outlet></router-outlet>
+          <div class="text-center">
+            <button class="btn btn-info btn-min-width" style=" margin-top: 10px; text-align: center;" routerLink = "/Add-Department" name="submit_reg" value="Register" type="submit">Add Department</button>
+          </div>
+            <router-outlet></router-outlet>
       </div>  
     </div>

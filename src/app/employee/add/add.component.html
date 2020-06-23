@@ -105,8 +105,11 @@
     <div class="form-group">
         <input type="date" id="dob" [(ngModel)]="emp.dob" name="dob"  class="form-control my-input" formControlName="dob" [ngClass]="{'is-invalid':
         form.get('dob').touched && form.get('dob').invalid}">
-        <div class="invalid-feedback">
-            <div>Input is required </div>
+        <!-- <div class="invalid-feedback">
+            <div>Age should be more then 21 years </div>
+        </div> -->
+        <div *ngIf="form.get('dob').touched && form.get('dob').invalid" class="invalid-feedback">
+            <div *ngIf="form.get('dob').errors.required">Input is required </div>
         </div>
     </div>
 
@@ -125,7 +128,10 @@
     </div> -->
     
     <!-- Send button -->
-    <button class="btn btn-info btn-block" name="submit_reg" value="Register" [disabled]="!form.valid" (click)="registerNow()" type="submit">Submit</button>
-    <button routerLink = "/List-Employee" class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit">Go to List</button>
+    <div class="text-center">
+        <button class="btn btn-info btn-min-width" style=" margin-top: 10px; margin-right: 5px; text-align: center;" name="submit_reg" value="Register" [disabled]="!form.valid" (click)="registerNow()" type="submit">Submit</button>
+
+        <button routerLink = "/List-Employee" class="btn btn-info btn-min-width" style=" margin-top: 10px; text-align: center;" name="submit_reg" value="Register" type="submit">Go to List</button>
+    </div>
     <router-outlet></router-outlet>
 </form>

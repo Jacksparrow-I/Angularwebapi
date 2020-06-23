@@ -9,9 +9,9 @@
     <!-- <div class="card-header" style="text-align: center;  margin-left:50px; margin-right:50px; margin-bottom:50px; font-weight:bold; font-size:xx-large;">  
       Employee Form
     </div>  -->
-    <div class="card" style="margin-left:50px; margin-right:50px; margin-bottom:50px; margin-top:50px;">  
+    <div class="card" style=" margin-bottom:50px; margin-top:50px;">  
         <div class="card-header" style="font-weight:bold; font-size:x-large;">  
-          Employee latest details
+          Employee details
           <input type="text"  class="form-control" placeholder="Search Here" [(ngModel)]="term">
         </div>        
         <div class="card-body">  
@@ -39,7 +39,7 @@
                   <td>{{ list.gender }}</td> 
                   <td>{{ list.designationName }}</td>
                   <td>{{ list.departmentName }}</td>
-                  <td>{{ list.dob }}</td>  
+                  <td>{{ list.dob | date:'dd:MMM:yyyy'}}</td>  
                   <td>{{ list.salary }}</td> 
                   <td>  
                   </td>  
@@ -50,7 +50,9 @@
               </tbody>  
             </table> 
           </div>  
-          <button routerLink = "/Add-Employee" class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit">Add Employee</button>
+          <div class="text-center">
+            <button routerLink = "/Add-Employee" class="btn btn-info btn-min-width" style=" margin-top: 10px; text-align: center;" name="submit_reg" value="Register" type="submit">Add Employee</button>
+          </div>
       <router-outlet></router-outlet>
         </div>  
       </div>

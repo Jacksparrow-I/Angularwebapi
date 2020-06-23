@@ -1,5 +1,6 @@
+import { ValidatorFn } from '@angular/forms';
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http"; 
+import { HttpClient, HttpHeaders } from "@angular/common/http"; 
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import {Emp} from './emp';
@@ -8,6 +9,7 @@ import {Dep} from './emp';
 import {Department} from './emp';
 import {Des} from './emp';
 import {Desigantion} from './emp';
+import {Login} from './emp';
 
 @Injectable({
   providedIn: 'root'
@@ -68,7 +70,8 @@ DesGetById(designationId): Observable<any> {
 
 //********************************************* Employee ***************************************************//
 
-getEmployees() {   
+getEmployees() { 
+
   return this.http.get(environment.apiBaseURI + "/api/Employee/GetItems")  ;
 }  
 
@@ -88,5 +91,10 @@ deleteEmployees(id) {
 EmpGetById(id): Observable<any> {   
   return this.http.get(environment.apiBaseURI + "/api/Employee/EmployeeById/"+id);
 }
+
+Login(FormData) {   
+  return this.http.post(environment.apiBaseURI + "/api/Authentication",FormData) ;
+} 
+
  
 }

@@ -16,7 +16,7 @@
 
     <label>Designation ID</label>
     <div class="form-group">
-        <input type="number" [(ngModel)]="Des.designationId"  name="designationId" id="designationId"  class="form-control my-input" placeholder="EmployeeCode" formControlName="designationId" [ngClass]="{'is-invalid':
+        <input disabled type="number" [(ngModel)]="Des.designationId"  name="designationId" id="designationId"  class="form-control my-input" placeholder="EmployeeCode" formControlName="designationId" [ngClass]="{'is-invalid':
         form.get('designationId').touched && form.get('designationId').invalid}">
         <div class="invalid-feedback">
             <div>Input is required </div>
@@ -37,7 +37,8 @@
     </div> -->
     
     <!-- Send button -->
-    <button class="btn btn-info btn-block" name="submit_reg" value="Register" [disabled]="!form.valid" (click)="Updatedata()" type="submit">Update</button>
-    <button routerLink = "/List-Designation" class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit">Go to List</button>
-
+    <div class="text-center">
+        <button class="btn btn-info btn-min-width" style=" margin-top: 10px; margin-right: 5px; text-align: center;" name="submit_reg" value="Register" [disabled]="!form.valid" (click)="Updatedata()" type="submit">Update</button>
+        <button routerLink = "/List-Designation" class="btn btn-info btn-min-width" style=" margin-top: 10px; text-align: center;" name="submit_reg" value="Register" type="submit">Go to List</button>
+    </div>
 </form>

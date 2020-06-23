@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Emp, Employee } from '../../emp';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -24,7 +25,7 @@ export class AddComponent implements OnInit {
     salary: new FormControl('',Validators.required)
   })
 
-
+  
   disList: any;
   depList: any;
   emp: Emp = new Emp ("","",0,"",0,0,"",0);
@@ -41,35 +42,32 @@ export class AddComponent implements OnInit {
 
 public registerNow(){
   {
+
     let resp=this.employeeService.addEmployees(this.emp);resp.subscribe((data)=>{this.message=(data)
-    if(this.message == 1)
+    
+      if(this.message == 1)
     {
       this.gotoList()
       this.toastr.success("your record added Sucessfully!");
     }
     else if(this.message == -1)
     {
-      this.toastr.warning("Oops ! User is already exist");
+      this.toastr.warning("Oops ! Employee Code is already exist");
     }
+    else if( data == -2)
+      {
+        this.toastr.warning("Age should be more then 21 years");
+      }
     else
     {
       this.toastr.warning("Error !!!");
     }
     });
-  }
-    // if(this.message == 1)
-    // {
-    //   alert("Employee added Sucessfully");
-    // }   
-    // else
-    // {
-    //   alert("Enter all required fields");
-    // }
-   
+  }   
 }
 
 gotoList() {
-  this.router.navigateByUrl('/List-Employee', { skipLocationChange: true });
+  // this.router.navigateByUrl('/List-Employee', { skipLocationChange: true });
   this.router.navigate(["/List-Employee"]);
 }
 

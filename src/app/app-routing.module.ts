@@ -13,27 +13,33 @@ import { AdddesignationComponent } from './designation/adddesignation/adddesigna
 import { ListdesignationComponent } from './designation/listdesignation/listdesignation.component';
 import { UpdatedesignationComponent } from './designation/updatedesignation/updatedesignation.component';
 import { MasterpageComponent } from './masterpage/masterpage.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth/auth.guard';
+
 
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'Main-Page', pathMatch: 'full' }, 
+  { path: '', redirectTo: 'Login', pathMatch: 'full' }, 
 
-  { path: 'Main-Page', component: MasterpageComponent }, 
-  { path: 'Admin-page', component: DepartmentComponent }, 
+  { path: 'Main-Page', component: MasterpageComponent,canActivate:[AuthGuard] }, 
+  { path: 'Admin-page', component: DepartmentComponent,canActivate:[AuthGuard] }, 
 
-  { path: 'Add-Employee', component: AddComponent },  
-  { path: 'List-Employee', component: ListComponent },
-  { path: 'Update-Employee/:id', component: UpdateComponent },
+  { path: 'Add-Employee', component: AddComponent,canActivate:[AuthGuard] },  
+  { path: 'List-Employee', component: ListComponent,canActivate:[AuthGuard] },
+  { path: 'Update-Employee/:id', component: UpdateComponent,canActivate:[AuthGuard] },
 
-  { path: 'Add-Department', component: AdddepartmentComponent },  
-  { path: 'List-Department', component: ListdepartmentComponent },
-  { path: 'Update-Department/:departmentId', component: UpdatedepartmentComponent },
+  { path: 'Add-Department', component: AdddepartmentComponent,canActivate:[AuthGuard] },  
+  { path: 'List-Department', component: ListdepartmentComponent,canActivate:[AuthGuard] },
+  { path: 'Update-Department/:departmentId', component: UpdatedepartmentComponent,canActivate:[AuthGuard] },
 
-  { path: 'Add-Designation', component: AdddesignationComponent },  
-  { path: 'List-Designation', component: ListdesignationComponent },
-  { path: 'Update-Designation/:designationId', component: UpdatedesignationComponent },
-  { path: '**', redirectTo: 'home' }
+  { path: 'Add-Designation', component: AdddesignationComponent,canActivate:[AuthGuard] },  
+  { path: 'List-Designation', component: ListdesignationComponent,canActivate:[AuthGuard] },
+  { path: 'Update-Designation/:designationId', component: UpdatedesignationComponent,canActivate:[AuthGuard] },
+
+  { path: 'Login', component: LoginComponent },
+
+  { path: '**', redirectTo: 'Login' }
 ];
 
 @NgModule({

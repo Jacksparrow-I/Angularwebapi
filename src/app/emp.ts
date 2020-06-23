@@ -1,5 +1,6 @@
+
+
 export class Emp{
-
     constructor(
         public name:string,
         public email:string,
@@ -10,21 +11,18 @@ export class Emp{
         public dob:string,
         public salary:number
     ){}
+
 }
-
 export class Employee{
-
-    constructor(
-        public id:number,
-        public name:string,
-        public email:string,
-        public employeeCode:number,
-        public gender:string,
-        public designation:number,
-        public department:number,
-        public dob:string,
-        public salary:number
-    ){}
+        id:number;
+        name:string;
+        email:string;
+        employeeCode:number;
+        gender:string;
+        designation:number;
+        department:number;
+        dob:Date;
+        salary:number;
 }
 
 export class EmpId{
@@ -35,7 +33,7 @@ export class EmpId{
         gender:string;
         designation:number;
         department:number;
-        dob:string;
+        dob:Date;
         salary:number;
 }
 
@@ -77,4 +75,16 @@ export class Desigantion{
 export class DesId{
         designationId:number;
         designationName:string;
+        
 }
+
+export class Login{
+    userId:number;
+    firstName:string;
+    lastName:string;
+    userName:string;
+    password:string;
+    token: string;
+    
+}
+

@@ -12,7 +12,7 @@
     </div>  -->
     <div class="card" style="margin-left:50px; margin-right:50px; margin-bottom:50px; margin-top:50px;">  
         <div class="card-header" style="font-weight:bold; font-size:x-large;">  
-          Designation latest details 
+          Designation details 
           <input type="text"  class="form-control" placeholder="Search Here" [(ngModel)]="term">
         </div>       
         
@@ -38,7 +38,8 @@
               </tbody>  
             </table> 
           </div>  
-          <button routerLink = "/Add-Designation" class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit">Add Designation</button>
-
+          <div class="text-center">
+            <button class="btn btn-info btn-min-width" style=" margin-top: 10px; text-align: center;" routerLink = "/Add-Designation" name="submit_reg" value="Register" type="submit">Add Designation</button>
+          </div>
         </div>  
       </div>

@@ -20,7 +20,9 @@
     </div> -->
     
     <!-- Send button -->
-    <button routerLink = "/List-Department" class="btn btn-info btn-block" name="submit_reg" value="Register"  type="submit">Department</button>
-    <button routerLink = "/List-Designation" class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit">Designation</button>
+    <div class="text-center">
+      <button class="btn btn-info btn-min-width" style=" margin-top: 10px; text-align: center;" routerLink = "/List-Department" name="submit_reg" value="Register"  type="submit">Department</button>
+      <button routerLink = "/List-Designation" style=" margin-top: 10px; text-align: center;" class="btn btn-info btn-min-width" name="submit_reg" value="Register" type="submit">Designation</button>
+    </div>
     <router-outlet></router-outlet>
 </form>

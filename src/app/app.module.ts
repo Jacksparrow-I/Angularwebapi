@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 import { EmployesService } from "./employes.service";
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';  
@@ -24,6 +24,8 @@ import { MasterpageComponent } from './masterpage/masterpage.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { LoginComponent } from './login/login.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 
 @NgModule({
@@ -41,7 +43,8 @@ import { ToastrModule } from 'ngx-toastr';
     AdddesignationComponent,
     ListdesignationComponent,
     UpdatedesignationComponent,
-    MasterpageComponent
+    MasterpageComponent,
+    LoginComponent
   ],  
   imports: [
     BrowserModule,
@@ -54,7 +57,11 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [EmployesService],
+  providers: [EmployesService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

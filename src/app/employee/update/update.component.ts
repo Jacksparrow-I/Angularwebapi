@@ -28,7 +28,7 @@ export class UpdateComponent implements OnInit {
 
   disList: any;
   depList: any;
-  emp: Employee = new Employee (0,"","",0,"",0,0,"",0);
+  emp: Employee = new Employee ();
   message:any; 
   id:number;
   public empobj : any;
@@ -65,7 +65,15 @@ export class UpdateComponent implements OnInit {
       }
       else if( data == -1)
       {
-        this.toastr.warning("Oops ! Data is already exist");
+        this.toastr.warning("Oops ! Employee Code is already exist");
+      }
+      else if( data == -2)
+      {
+        this.toastr.warning("Age should be more then 21 years");
+      }
+      else if( data == -3)
+      {
+        this.toastr.warning("User Name Already Exist");
       }
       else
       {

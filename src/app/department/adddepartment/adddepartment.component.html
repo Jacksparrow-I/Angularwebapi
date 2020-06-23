@@ -24,7 +24,9 @@
     </div> -->
     
     <!-- Send button -->
-    <button class="btn btn-info btn-block" name="submit_reg" value="Register" (click)="registerNow()" type="submit" >Submit</button>
-    <button class="btn btn-info btn-block" name="submit_reg" value="Register" type="submit" routerLink = "/List-Department">Go to List</button>
-    <router-outlet></router-outlet>
+    <div class="text-center">
+        <button class="btn btn-info btn-min-width" style=" margin-top: 10px; margin-right: 5px; text-align: center;" name="submit_reg" value="Register" [disabled]="!form.valid" (click)="registerNow()" type="submit" >Submit</button>
+        <button class="btn btn-info btn-min-width" style=" margin-top: 10px; text-align: center;" name="submit_reg" value="Register" type="submit" routerLink = "/List-Department">Go to List</button>
+    </div>
+        <router-outlet></router-outlet>
 </form>
